@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sun</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <div id="top">
+    <h1>Sun</h1>
+     <div id="adminMenu">
+      <button id="usuarios">Usuarios</button>     
+      <label id="categorias">Categorías</label>
+      <label id="productos">Productos</label>
+    </div>
+  </div>
+  <div id="aside">
+     <div id="categoList">
+      <ul id="catMenu">
+      </ul>
+    </div>
+  </div>
+
+  <seccion id="login"> 
+  </seccion>
+
+  <section id="sunapp">
+    <div id="menuAdmin"></div>
+  </seccion>
+  
+  <section id="mainapp">
+  </seccion>
+  
+
+  <!-- TEMPLATE LOGIN!-->
+  <script type="text/template" id="loginAut">
+    <h1>Login</h1>
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+          <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">Password</label>
+        <div class="controls">
+          <input type="password" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn" id="loginButton">Sign in</button>
+        </div>
+      </div>
+    </form>
+  </script>
+  
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <script type="text/template" id="adminUsuarios"> 
+      <div id="menuUser">
+        <label id="agregarUser">Agregar</label>     
+        <label id="verUser">Ver</label>
+      </div>
+        <div id="addUser">
+        <label for="new-user-user">Usuario: </label> 
+        <input id="new-user-user" type="text" autofocus>
+        <label for="new-user-pass">Password: </label>
+        <input id="new-user-pass" type="password">
+        <label for="new-user-name">Nombre: </label>
+        <input id="new-user-name" type="text">
+        <label for="new-user-mail">Mail: </label>
+        <input id="new-user-mail" type="mail">
+        <label for="new-user-tel">Telefono: </label>
+        <input id="new-user-tel" type="number">
+        <button id="new-user">NEW</button>
+        </div>
+
+       <div id="user-list">
+       
+      </div>
+   </script>
+  
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <script type="text/template" id="adminUsuariosView"> 
+    <label for="user">Usuario: </label><label id="user"><%= user %></label>
+         <label for="name">Nombre: </label><label id="name"><%= name %></label>
+          <label for="mail">Mail: </label><label id="mail"><%= mail %></label>
+           <label for="tel">Tel: </label><label id="tel"><%= tel %></label>
+        <button class="edit" value="">edit</button>
+        <button class="destroy"></button>
+      
+       </script>
+  
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <script type="text/template" id="adminUsuariosEdit"> 
+      <div id="editUser">
+        <label for="edit-user-user">Usuario: </label> 
+        <input id="edit-user-user" type="text" autofocus>
+        <label for="edit-user-pass">Password: </label>
+        <input id="edit-user-pass" type="password">
+        <label for="edit-user-name">Nombre: </label>
+        <input id="edit-user-name" type="text">
+        <label for="edit-user-mail">Mail: </label>
+        <input id="edit-user-mail" type="mail">
+        <label for="edit-user-telefono">Telefono: </label>
+        <input id="edit-user-telefono" type="number">
+        <button id="edit-user">SAVE</button>
+      </div>
+    </script>
+
+
+      <script type="text/template" id="adminCategorias"> </script>
+      <script type="text/template" id="adminProductos"> </script>
+      <script type="text/template" id="adminProductos"> </script>
+      <script type="text/template" id="mainView"></script>
+
+ <script src="js/lib/jquery.js"></script>
+  <script src="js/lib/underscore.js"></script>
+  <script src="js/lib/backbone-min.js"></script>
+  <script src="js/lib/backbone.localStorage.js"></script>
+  <script src="js/models/user.js"></script>
+  <script src="js/models/categoria.js"></script>
+  <script src="js/models/producto.js"></script>
+  <script src="js/collections/users.js"></script>
+  <script src="js/collections/categorias.js"></script>
+  <script src="js/collections/productos.js"></script>
+
+  <script src="js/views/login.js"></script>
+  <script src="js/views/users.js"></script>
+  <script src="js/views/editUser.js"></script>
+  <script src="js/views/userList.js"></script>
+
+  <script src="js/views/app.js"></script>
+  <script src="js/routers/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
