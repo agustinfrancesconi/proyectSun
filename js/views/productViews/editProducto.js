@@ -1,7 +1,7 @@
 var app = app || {};
 
 
-app.EditUserView = Backbone.View.extend({
+app.EditProductoView = Backbone.View.extend({
   
   tagName: 'div',
   template: _.template( $('#adminUsuariosEdit').html() ),
@@ -23,7 +23,7 @@ app.EditUserView = Backbone.View.extend({
   },   
   newAttributes: function() {
     return { 
-     //armo el usuario con lo proveniente del formulario
+      //armo el usuario con lo proveniente del formulario
       name: this.$name.val().trim(),
       user: this.$user.val().trim(),
       mail: this.$mail.val().trim(),
@@ -31,7 +31,6 @@ app.EditUserView = Backbone.View.extend({
       pass: this.$pass.val().trim(),
     };
   },
-
   save: function() {
     this.model.save( this.newAttributes());
   },

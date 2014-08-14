@@ -1,7 +1,7 @@
 
 var app = app || {};
 
-app.UserListView = Backbone.View.extend({
+app.ProductoListView = Backbone.View.extend({
 
   tagName: 'tr',
 

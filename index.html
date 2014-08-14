@@ -6,34 +6,36 @@
   <title>Sun</title>
    <link href="normalize.css" rel="assets/stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/bootstrap.css">
+  <link rel="stylesheet" href="assets/bootstrap-theme.css">
 </head>
 
 <body>
-  <div id="top">
-    <h1>Sun</h1>
+  <div id="top" class="container-fluid">
      <div id="adminMenu">
-      <button id="usuarios">Usuarios</button>     
+      <label id="logo">Sun</label>
+      <label id="usuarios">Usuarios</label>     
       <label id="categorias">Categorías</label>
       <label id="productos">Productos</label>
     </div>
   </div>
-  <div id="aside">
-     <div id="categoList">
-      <ul id="catMenu">
-      </ul>
-    </div>
+  <div id="aside" class="col-sm-1 col-md-1 sidebar">
+    <ul id="catmenu" class="nav nav-sidebar">
+      <li><a>1</a></li>
+      <li><a>2</a></li>
+      <li><a>3</a></li>
+      <li><a>4</a></li>
+      <li><a>5</a></li>
+    </ul>
   </div>
 
   <seccion id="login"> 
   </seccion>
-
   <section id="sunapp">
     <div id="menuAdmin"></div>
   </seccion>
-  
   <section id="mainapp">
   </seccion>
-  
 
   <!-- TEMPLATE LOGIN!-->
   <script type="text/template" id="loginAut">
@@ -61,67 +63,176 @@
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuarios"> 
-      <div id="menuUser">
-        <label id="agregarUser">Agregar</label>     
-        <label id="verUser">Ver</label>
-      </div>
-        <div id="addUser">
-        <label for="new-user-user">Usuario: </label> 
-        <input id="new-user-user" type="text" autofocus>
-        <label for="new-user-pass">Password: </label>
-        <input id="new-user-pass" type="password">
-        <label for="new-user-name">Nombre: </label>
-        <input id="new-user-name" type="text">
-        <label for="new-user-mail">Mail: </label>
-        <input id="new-user-mail" type="mail">
-        <label for="new-user-tel">Telefono: </label>
-        <input id="new-user-tel" type="number">
-        <button id="new-user">NEW</button>
-        </div>
+    <div id="menuUser">
+      <label id="agregarUser">Agregar</label>     
+      <label id="verUser">Ver</label>
+    </div>
+    <div id="addUser" class="form-horizontal">
 
-       <div id="user-list">
-       
+      <div class="form-group">
+        <label for="new-user-user" class="col-sm-2 control-label">Usuario: </label>
+        <div class="col-sm-10">
+          <input id="new-user-user" type="text"  class="form-control" autofocus>
+        </div>
       </div>
-   </script>
+      <div class="form-group">
+        <label for="new-user-pass" class="col-sm-2 control-label">Password: </label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="new-user-pass" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="new-user-name" class="col-sm-2 control-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="new-user-name" >
+        </div>
+      </div>
+        
+      <div class="form-group">
+        <label for="new-user-mail" class="col-sm-2 control-label">Mail: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="new-user-mail" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="new-user-tel" class="col-sm-2 control-label">Telefono: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="new-user-tel" >
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button id="new-user" class="btn btn-default">GUARDAR</button>
+        </div>
+      </div>
+      
+    </div>
+
+    <div id="user-list">
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="user-lista">
+       
+        </tbody>
+    </table> 
+    <div id="edit-list"></div>
+
+  </script>
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuariosView"> 
-    <label for="user">Usuario: </label><label id="user"><%= user %></label>
-         <label for="name">Nombre: </label><label id="name"><%= name %></label>
-          <label for="mail">Mail: </label><label id="mail"><%= mail %></label>
-           <label for="tel">Tel: </label><label id="tel"><%= tel %></label>
-        <button class="edit" value="">edit</button>
-        <button class="destroy"></button>
-      
-       </script>
+    <td><label id="user"><%= user %></label></td>
+    <td><label id="name"><%= name %></label></td>
+    <td><label id="mail"><%= mail %></label></td>
+    <td><label id="tel"><%= tel %></label></td>
+    <td> <button class="edit" value="">edit</button><button class="destroy">X</button> </td>
+  </script>
   
-   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuariosEdit"> 
-      <div id="editUser">
-        <label for="edit-user-user">Usuario: </label> 
-        <input id="edit-user-user" type="text" autofocus>
-        <label for="edit-user-pass">Password: </label>
-        <input id="edit-user-pass" type="password">
-        <label for="edit-user-name">Nombre: </label>
-        <input id="edit-user-name" type="text">
-        <label for="edit-user-mail">Mail: </label>
-        <input id="edit-user-mail" type="mail">
-        <label for="edit-user-telefono">Telefono: </label>
-        <input id="edit-user-telefono" type="number">
-        <button id="edit-user">SAVE</button>
-      </div>
-    </script>
+    <div id="editUser">
+      <label for="edit-user-user">Usuario: </label> 
+      <input id="edit-user-user" type="text" value="<%= user %>" autofocus>
+      <label for="edit-user-pass">Password: </label>
+      <input id="edit-user-pass" type="password" value="<%= pass %>">
+      <label for="edit-user-name">Nombre: </label>
+      <input id="edit-user-name" type="text" value="<%= name %>">
+      <label for="edit-user-mail">Mail: </label>
+      <input id="edit-user-mail" type="mail" value="<%= mail %>">
+      <label for="edit-user-tel">Telefono: </label>
+      <input id="edit-user-tel" type="number" value="<%= tel %>">
+      <label for="edit-user-pass">Password: </label>
+      <input id="edit-user-pass" type="number" value="<%= pass %>">
+      <button id="edit-user">SAVE</button>
+    </div>
+  </script>
 
+  <script type="text/template" id="adminCategorias"> 
+    <div id="menuCategoria">
+      <label id="agregarCategoria">Agregar Cat</label>     
+      <label id="verCategoria">Ver Cat</label>
+    </div>
+    <div id="addCategoria">
+      <label for="new-categoria-cod">Código: </label> 
+      <input id="new-categoria-cod" type="text" autofocus>
+      <label for="new-categoria-name">Nombre: </label> 
+      <input id="new-categoria-name" type="text" autofocus>
+      <label for="new-categoria-descripcion">Descripcion: </label>
+      <input id="new-categoria-descripcion" type="text">
+      <button id="new-categoria">NEW</button>
+    </div>
+    <div id="categoria-list"></div>
+    <div id="edit-list"></div>
+  </script>
 
-      <script type="text/template" id="adminCategorias"> </script>
-      <script type="text/template" id="adminProductos"> </script>
-      <script type="text/template" id="adminProductos"> </script>
-      <script type="text/template" id="mainView"></script>
+    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <script type="text/template" id="adminCategoriasView"> 
+    <label for="cod">Código: </label><label id="cod"><%= cod %></label>
+    <label for="name">Nombre: </label><label id="name"><%= name %></label>
+    <label for="descripcion">Descripcion: </label><label id="descripcion"><%= descripcion %></label>
+    <button class="edit" value="">edit</button>
+    <button class="destroy"></button>
+  </script>
 
- <script src="js/lib/jquery.js"></script>
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <script type="text/template" id="adminCategoriasEdit"> 
+    <div id="editCategoria">
+      <label for="edit-categoria-cod">Código: </label> 
+      <input id="edit-categoria-cod" type="text" value="<%= cod %>" autofocus>
+      <label for="edit-categoria-name">Nombre: </label>
+      <input id="edit-categoria-name" type="text" value="<%= name %>">
+      <label for="edit-categoria-descripcion">Descripción: </label>
+      <input id="edit-categoria-descripcion" type="text" value="<%= descripcion %>">
+      <button id="edit-categoria">SAVE</button>
+    </div>
+  </script>
+
+     <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS!-->
+  <script type="text/template" id="adminProductos"> 
+    <div id="menuProducto">
+      <label id="agregarProducto">Agregar Prod</label>     
+      <label id="verProducto">Ver Prod</label>
+    </div>
+    <div id="addProducto">
+      <label for="new-producto-cod">Código: </label><input id="new-producto-cod" type="text" autofocus>
+      <label for="new-producto-name">Nombre: </label><input id="new-producto-name" type="text">
+      
+      <label for="new-producto-descripcion">Descripción: </label><input id="new-producto-descripcion" type="password">
+      <label for="new-producto-descripcion2">2° Descripción: </label><input id="new-producto-descripcion2" type="password">
+      
+      <label for="new-producto-talle">Talle: </label><input id="new-producto-talle" type="text">
+      <label for="new-producto-color">Color: </label><input id="new-producto-color" type="text">
+      <label for="new-producto-tamaño">Tamaño: </label><input id="new-producto-tamaño" type="text">
+      <label for="new-producto-color">Color: </label><input id="new-producto-color" type="text">
+      <label for="new-producto-categoria">Categoria: </label><input id="new-producto-categoria" type="text">
+      <label for="new-producto-categoria2">Categoria2: </label><input id="new-producto-categoria2" type="text">
+      <button id="new-producto">NEW</button>
+    </div>
+
+    <div id="producto-list"></div>
+    <div id="edit-list"></div>
+  </script>
+
+  <script type="text/template" id="mainView"></script>
+
+  <script src="js/lib/jquery.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone-min.js"></script>
   <script src="js/lib/backbone.localStorage.js"></script>
+  <script src="js/lib/bootstrap.js"></script>
   <script src="js/models/user.js"></script>
   <script src="js/models/categoria.js"></script>
   <script src="js/models/producto.js"></script>
@@ -131,6 +242,12 @@
   <script src="js/views/userViews/users.js"></script>
   <script src="js/views/userViews/editUser.js"></script>
   <script src="js/views/userViews/userList.js"></script>
+  <script src="js/views/categoriaViews/categorias.js"></script>
+  <script src="js/views/categoriaViews/editCategoria.js"></script>
+  <script src="js/views/categoriaViews/categoriaList.js"></script>
+  <script src="js/views/productViews/productos.js"></script>
+  <script src="js/views/productViews/editProducto.js"></script>
+  <script src="js/views/productViews/productoList.js"></script>
   <script src="js/views/login.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/routers/router.js"></script>

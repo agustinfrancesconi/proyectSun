@@ -1,11 +1,11 @@
 
 var app = app || {};
 
-app.UserListView = Backbone.View.extend({
+app.CategoriaListView = Backbone.View.extend({
 
-  tagName: 'tr',
+  tagName: 'div',
 
-  template: _.template( $('#adminUsuariosView').html() ),
+  template: _.template( $('#adminCategoriasView').html() ),
 
   events: {
     'click .destroy': 'clear', 
@@ -24,8 +24,8 @@ app.UserListView = Backbone.View.extend({
   clear: function() {
     this.model.destroy();
   },
-  edit: function( user ) {
-    var view = new app.EditUserView( { model: this.model } );
+  edit: function( categoria ) {
+    var view = new app.EditCategoriaView( { model: this.model } );
     $('#edit-list').html( view.render().el );
   },
 

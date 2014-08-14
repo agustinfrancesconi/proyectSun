@@ -2,7 +2,7 @@
   // Categoria Model
   app.Categoria = Backbone.Model.extend({
     defaults: {
-      id:'',
+      cod:'',
       name: '',
       descripcion: '',
     }

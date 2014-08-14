@@ -2,7 +2,7 @@
   // User Model
   app.User = Backbone.Model.extend({
     defaults: {
-          user: '',
+      user: '',
       pass: '',
       name: '',
       mail: '',

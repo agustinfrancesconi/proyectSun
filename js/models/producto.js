@@ -2,7 +2,7 @@
   // Producto Model
   app.Producto = Backbone.Model.extend({
     defaults: {
-      id:'',
+      cod: '',
       name: '',
       descripcion: '',
       descripcion2: '',
@@ -12,6 +12,11 @@
       tel: '',
       categoria: '',
       categoria2: '',
+      imagen1: '',
+      imagen2: '',
+      imagen3: '',
+      imagen4: '',
+      imagen5: '',
     }
 
   });

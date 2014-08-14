@@ -1,0 +1,63 @@
+var app = app || {};
+
+app.CategoriaView = Backbone.View.extend({
+
+  template: _.template( $('#adminCategorias').html() ),
+
+  events: {
+    'click #agregarCategoria' : 'add',
+    'click #new-categoria' : 'guardar',
+    'click #verCategoria' : 'ver',
+  },
+  
+  
+  initialize: function() {
+    this.listenTo(app.Categorias, 'reset', this.addAll);
+    this.listenTo(app.Categorias, 'change', this.addAll);
+    app.Categorias.fetch();
+    this.render();
+  },
+  
+  render: function() {
+    $(this.el).html(this.template());
+    this.$name  = this.$('#new-categoria-name');
+    this.$cod  = this.$('#new-categoria-cod');
+    this.$descripcion  = this.$('#new-categoria-descripcion');
+    $(this.el).find('#addCategoria').hide();
+    return this;
+  },
+   newAttributes: function() {
+    return { 
+      //armo el producto con lo proveniente del formulario
+      name: this.$name.val().trim(),
+      cod: this.$cod.val().trim(),
+      descripcion: this.$descripcion.val().trim(),
+    };
+  },
+  guardar : function (event) {
+    app.Categorias.create( this.newAttributes() ); 
+    this.$name.val('');
+    this.$cod.val('');
+    this.$descripcion.val('');
+
+    $(this.el).find('#addCategoria').hide();
+  },
+  add: function () {
+    $(this.el).find('#categoria-list').hide();
+    $(this.el).find('#addCategoria').show();
+  },
+  ver: function () {
+    this.addAll();
+    $(this.el).find('#addCategoria').hide();
+    $(this.el).find('#categoria-list').show();
+    //cargo el formulario de vista + edicion para modificar el usuario
+  },
+  addOne: function( categoria ) {
+    var view = new app.CategoriaListView({ model: categoria });
+    $('#categoria-list').append( view.render().el );
+  },
+  addAll: function() {
+    this.$('#categoria-list').html('');
+    app.Categorias.each(this.addOne, this);
+  },
+});

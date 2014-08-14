@@ -4,7 +4,7 @@ var Workspace = Backbone.Router.extend({
   	'' 				: 'login', 
   	'producto/:id' 	: 'viewProduct', 
   	'productos' 	: 'mainProductos',
-  	'categorias' 	: 'mainCategoria',
+  	'categorias' 	: 'mainCategorias',
     'usuarios'  : 'mainUsuarios',
   }, 
   validate : function () { 
@@ -26,11 +26,12 @@ var Workspace = Backbone.Router.extend({
   },
   mainProductos: function() {
     if(this.validate()){
-      $('#mainapp').html(new app.ProductView().render().el);
+      $('#mainapp').html(new app.ProductoView().render().el);
     }  
   },
   mainCategorias: function() {
     if(this.validate()){
+      $('#mainapp').html('');
       $('#mainapp').html(new app.CategoriaView().render().el);
     }  
   },
