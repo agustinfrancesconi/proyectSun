@@ -12,11 +12,6 @@ var Workspace = Backbone.Router.extend({
     //en caso de ser falso lo manda al login
     return true;
   },
-  appView: function () {
-  	if(this.validate()){
-
-  	}
-  },
   login: function() {
     if(!this.validate()){
     $('body').html(new app.LoginView().render().el);
@@ -31,12 +26,12 @@ var Workspace = Backbone.Router.extend({
   },
   mainProductos: function() {
     if(this.validate()){
-      //$('#mainapp').html(new app.UserView().render().el);
+      $('#mainapp').html(new app.ProductView().render().el);
     }  
   },
   mainCategorias: function() {
     if(this.validate()){
-     // $('#mainapp').html(new app.UserView().render().el);
+      $('#mainapp').html(new app.CategoriaView().render().el);
     }  
   },
   viewProduct: function (id) { 

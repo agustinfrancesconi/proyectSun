@@ -11,21 +11,18 @@ app.UserListView = Backbone.View.extend({
     'click .destroy': 'clear', 
     'click .edit': 'edit', 
   },
-
+  
   initialize: function() {
     this.listenTo(this.model, 'destroy', this.remove);
     this.render();
   },
-
   render: function() {
-
     this.$el.html( this.template( this.model.attributes ) );
     return this;
   },  
- 
   edit: function( user ) {
-  //  var view = new app.EditUserView({ model: app.User });
-   // $('#edit-list').html( view.render().el );
+    var view = new app.EditUserView( { model: this.model } );
+    $('#edit-list').html( view.render().el );
   },
 
 });
