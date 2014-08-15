@@ -1,7 +1,8 @@
 // Movie Router
 var Workspace = Backbone.Router.extend({
   routes: {
-  	'' 				: 'login', 
+  	'#' 				: '', 
+    'login'         : 'login', 
   	'producto/:id' 	: 'viewProduct', 
   	'productos' 	: 'mainProductos',
   	'categorias' 	: 'mainCategorias',
@@ -13,11 +14,12 @@ var Workspace = Backbone.Router.extend({
     return true;
   },
   login: function() {
-    if(!this.validate()){
-    $('body').html(new app.LoginView().render().el);
-  }else{
-    
-  }
+    if(this.validate()){
+      console.log("login");
+      $('body').html(new app.LoginView().render().el);
+    }else{
+      
+    }
   },
   mainUsuarios: function() {
     if(this.validate()){

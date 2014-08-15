@@ -6,12 +6,12 @@ app.UserView = Backbone.View.extend({
 
   events: {
     'click #agregarUser' : 'add',
-    'click #new-user' : 'guardar',
+    'submit #addUser' : 'guardar',
     'click #verUser' : 'ver',
   },
   
-  
   initialize: function() {
+
     this.listenTo(app.Users, 'reset', this.addAll);
     this.listenTo(app.Users, 'change', this.addAll);
     app.Users.fetch();
@@ -26,10 +26,13 @@ app.UserView = Backbone.View.extend({
     this.$tel   = this.$('#new-user-tel');
     this.$pass  = this.$('#new-user-pass');
     $(this.el).find('#addUser').hide();
-   $(this.el).find('#user-list').hide();
+    $(this.el).find('#user-list').hide();
     return this;
   },
-   newAttributes: function() {
+  validateField: function(event) {
+  console.log(event);
+  },
+  newAttributes: function() {
     return { 
       //armo el producto con lo proveniente del formulario
       name: this.$name.val().trim(),
@@ -40,6 +43,7 @@ app.UserView = Backbone.View.extend({
     };
   },
   guardar : function (event) {
+    event.preventDefault();
     app.Users.create( this.newAttributes() ); 
     this.$name.val('');
     this.$user.val('');
@@ -59,12 +63,12 @@ app.UserView = Backbone.View.extend({
     //cargo el formulario de vista + edicion para modificar el usuario
   },
   addOne: function( user ) {
-
     var view = new app.UserListView({ model: user });
     $('#user-lista').append( view.render().el );
   },
   addAll: function() {
     this.$('#user-lista').html('');
     app.Users.each(this.addOne, this);
+    $('#user-list').show();
   },
 });

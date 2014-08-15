@@ -10,7 +10,6 @@ app.EditProductoView = Backbone.View.extend({
     'click .destroy': 'clear', 
     'click #edit-user': 'save', 
   },
-
   initialize: function() {
     this.listenTo(app.Users, 'change', this.close);
     this.$el.html( this.template( this.model.attributes ) );
@@ -39,5 +38,4 @@ app.EditProductoView = Backbone.View.extend({
     this.remove();  
     Backbone.View.prototype.remove.call(this);
   }
-
 });

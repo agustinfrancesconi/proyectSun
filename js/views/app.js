@@ -7,6 +7,7 @@ app.AppView = Backbone.View.extend({
   el: '#top',
   
   events: {
+    'click #logo':'home',
     'click #usuarios':'adminUser',
     'click #categorias':'adminCategoria',
     'click #productos':'adminProducto',
@@ -20,7 +21,9 @@ app.AppView = Backbone.View.extend({
   initialize: function() {
 
   },
-
+  home: function() {
+       app.SunRouter.navigate("");
+  },
   adminUser: function() {
     app.SunRouter.navigate("#/usuarios");
   },

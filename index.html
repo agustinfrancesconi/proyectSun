@@ -1,9 +1,9 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Sun</title>
+  <title >Sun</title>
    <link href="normalize.css" rel="assets/stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/bootstrap.css">
@@ -12,14 +12,14 @@
 
 <body>
   <div id="top" class="container-fluid">
-     <div id="adminMenu">
-      <label id="logo">Sun</label>
+     <div id="adminMenu" class="nav">
+      <label id="logo" class="brand">Sun</label>
       <label id="usuarios">Usuarios</label>     
       <label id="categorias">Categorías</label>
       <label id="productos">Productos</label>
     </div>
   </div>
-  <div id="aside" class="col-sm-1 col-md-1 sidebar">
+ <!-- <div id="aside" class="col-sm-1 col-md-1 sidebar">
     <ul id="catmenu" class="nav nav-sidebar">
       <li><a>1</a></li>
       <li><a>2</a></li>
@@ -27,10 +27,8 @@
       <li><a>4</a></li>
       <li><a>5</a></li>
     </ul>
-  </div>
+  </div>!-->
 
-  <seccion id="login"> 
-  </seccion>
   <section id="sunapp">
     <div id="menuAdmin"></div>
   </seccion>
@@ -39,79 +37,85 @@
 
   <!-- TEMPLATE LOGIN!-->
   <script type="text/template" id="loginAut">
-    <h1>Login</h1>
-    <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label" for="inputEmail">Email</label>
-        <div class="controls">
-          <input type="text" id="inputEmail" placeholder="Email">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Password</label>
-        <div class="controls">
-          <input type="password" id="inputPassword" placeholder="Password">
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="controls">
-          <button type="submit" class="btn" id="loginButton">Sign in</button>
-        </div>
-      </div>
-    </form>
+    <style type="text/css">
+    body { padding-top: 40px;padding-bottom: 40px;background-color: #f5f5f5;}
+    .form-signin { max-width: 300px; padding: 19px 29px 29px; margin: 0 auto 20px;
+      background-color: #fff; border: 1px solid #e5e5e5; -webkit-border-radius: 5px;
+      -moz-border-radius: 5px; border-radius: 5px;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);box-shadow: 0 1px 2px rgba(0,0,0,.05);}
+      .form-signin .form-signin-heading,.form-signin .checkbox {margin-bottom: 10px;}
+      .form-signin input[type="text"],.form-signin input[type="password"] {font-size: 16px;
+        height: auto;margin-bottom: 15px;padding: 7px 9px;}
+      </style>
+     <div class="container">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Sol</h2>
+        <input id="userlogin" type="text" class="input-block-level" placeholder="Usuario" required>
+        <input id="passlogin" type="password" class="input-block-level" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Recordarme
+        </label>
+        <button class="btn btn-large btn-primary" id="loginButton" type="submit">Log In</button>
+      </form>
+    </div> 
   </script>
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuarios"> 
-    <div id="menuUser">
-      <label id="agregarUser">Agregar</label>     
-      <label id="verUser">Ver</label>
+    <div id="menuUser" class="8col-md-8">
+      <button id="agregarUser" class="btn btn-primary">Agregar</button>     
+      <button id="verUser" class="btn btn-primary">Ver</button>
     </div>
-    <div id="addUser" class="form-horizontal">
+    
+    <form id="addUser" name="addUser" class="form-horizontal container">
 
       <div class="form-group">
         <label for="new-user-user" class="col-sm-2 control-label">Usuario: </label>
         <div class="col-sm-10">
-          <input id="new-user-user" type="text"  class="form-control" autofocus>
+          <input id="new-user-user" name="new-user-user" type="text"  class="form-control" autofocus required>
         </div>
       </div>
       <div class="form-group">
         <label for="new-user-pass" class="col-sm-2 control-label">Password: </label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="new-user-pass" >
+          <input type="password" class="form-control" id="new-user-pass" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="new-user-name" class="col-sm-2 control-label">Nombre: </label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="new-user-name" >
+          <input type="text" class="form-control" id="new-user-name" required>
         </div>
       </div>
         
       <div class="form-group">
         <label for="new-user-mail" class="col-sm-2 control-label">Mail: </label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="new-user-mail" >
+          <input type="email" class="form-control" id="new-user-mail" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="new-user-tel" class="col-sm-2 control-label">Telefono: </label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="new-user-tel" >
+          <input type="number" class="form-control" id="new-user-tel" required>
         </div>
       </div>
       
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button id="new-user" class="btn btn-default">GUARDAR</button>
+          <button id="new-user" type="submit" class="btn btn-default"> GUARDAR</button>
+        
+        
+
+
         </div>
       </div>
       
-    </div>
+    </form>
 
-    <div id="user-list">
+    <div id="user-list" class="container">
 
     <table class="table table-hover">
         <thead>
@@ -128,42 +132,70 @@
        
         </tbody>
     </table> 
+    </div>
     <div id="edit-list"></div>
 
   </script>
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuariosView"> 
-    <td><label id="user"><%= user %></label></td>
-    <td><label id="name"><%= name %></label></td>
-    <td><label id="mail"><%= mail %></label></td>
-    <td><label id="tel"><%= tel %></label></td>
-    <td> <button class="edit" value="">edit</button><button class="destroy">X</button> </td>
+    <td><%= user %></label></td>
+    <td><%= name %></label></td>
+    <td><%= mail %></label></td>
+    <td><%= tel %></label></td>
+    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy">X</button> </td>
   </script>
   
   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuariosEdit"> 
-    <div id="editUser">
-      <label for="edit-user-user">Usuario: </label> 
-      <input id="edit-user-user" type="text" value="<%= user %>" autofocus>
-      <label for="edit-user-pass">Password: </label>
-      <input id="edit-user-pass" type="password" value="<%= pass %>">
-      <label for="edit-user-name">Nombre: </label>
-      <input id="edit-user-name" type="text" value="<%= name %>">
-      <label for="edit-user-mail">Mail: </label>
-      <input id="edit-user-mail" type="mail" value="<%= mail %>">
-      <label for="edit-user-tel">Telefono: </label>
-      <input id="edit-user-tel" type="number" value="<%= tel %>">
-      <label for="edit-user-pass">Password: </label>
-      <input id="edit-user-pass" type="number" value="<%= pass %>">
-      <button id="edit-user">SAVE</button>
-    </div>
+    
+    <form id="editUser" class="form-horizontal container">
+      <div class="form-group">
+        <label for="edit-user-user" class="col-sm-2 control-label">Usuario: </label>
+        <div class="col-sm-10">
+          <input id="edit-user-user" name="edit-user-user" type="text"  class="form-control" autofocus required value="<%= user %>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="edit-user-pass" class="col-sm-2 control-label">Password: </label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="edit-user-pass" required value="<%= pass %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-user-name" class="col-sm-2 control-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="edit-user-name" value="<%= name %>" required>
+        </div>
+      </div>
+        
+      <div class="form-group">
+        <label for="edit-user-mail" class="col-sm-2 control-label">Mail: </label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="edit-user-mail" required value="<%= mail %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-user-tel" class="col-sm-2 control-label">Telefono: </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="edit-user-tel" required value="<%= tel %>">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button id="edit-user" type="submit" class="btn btn-default"> MODIFICAR</button>
+        </div>
+      </div>
+    </form>
   </script>
 
   <script type="text/template" id="adminCategorias"> 
     <div id="menuCategoria">
-      <label id="agregarCategoria">Agregar Cat</label>     
-      <label id="verCategoria">Ver Cat</label>
+      <label id="agregarCategoria"  class="btn btn-primary">Agregar Cat</label>     
+      <label id="verCategoria"  class="btn btn-primary">Ver Cat</label>
     </div>
     <div id="addCategoria">
       <label for="new-categoria-cod">Código: </label> 
@@ -172,6 +204,7 @@
       <input id="new-categoria-name" type="text" autofocus>
       <label for="new-categoria-descripcion">Descripcion: </label>
       <input id="new-categoria-descripcion" type="text">
+       <input id="new-categoria-descripcion" type="color">
       <button id="new-categoria">NEW</button>
     </div>
     <div id="categoria-list"></div>
@@ -233,6 +266,8 @@
   <script src="js/lib/backbone-min.js"></script>
   <script src="js/lib/backbone.localStorage.js"></script>
   <script src="js/lib/bootstrap.js"></script>
+  <script src="js/lib/bootstrap-confirmation.js"></script>
+  <script src="js/lib/bootbox.js"></script>
   <script src="js/models/user.js"></script>
   <script src="js/models/categoria.js"></script>
   <script src="js/models/producto.js"></script>

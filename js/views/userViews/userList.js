@@ -22,10 +22,17 @@ app.UserListView = Backbone.View.extend({
   },  
   
   clear: function() {
-    this.model.destroy();
+    var x = this.model; 
+    bootbox.confirm("Seguro de borrar a " + this.model.attributes.name, function(result) {
+    if(result){
+      x.destroy();
+    }
+    });
+  
   },
   edit: function( user ) {
     var view = new app.EditUserView( { model: this.model } );
+    $('#user-list').hide();
     $('#edit-list').html( view.render().el );
   },
 

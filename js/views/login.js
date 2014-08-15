@@ -9,7 +9,6 @@ app.LoginView = Backbone.View.extend({
         return this;
     },
     initialize:function () {
-        console.log('Initializing Login View');
         this.render();
     },
     events: {
@@ -18,8 +17,8 @@ app.LoginView = Backbone.View.extend({
     login:function (event) {
         event.preventDefault(); // Don't let this button submit the form
         var formValues = {
-            email: $('#inputEmail').val(),
-            password: $('#inputPassword').val()
+            email: $('#user').val(),
+            password: $('#pass').val()
         };  
         if(formValues){
             //set the user 

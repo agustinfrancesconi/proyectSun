@@ -37,8 +37,10 @@ app.EditUserView = Backbone.View.extend({
   },
   close: function() {
     // Remove view from DOM
+
     this.remove();  
     Backbone.View.prototype.remove.call(this);
+     $('#user-lista').show();
   }
 
 });
