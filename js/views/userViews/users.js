@@ -8,16 +8,15 @@ app.UserView = Backbone.View.extend({
     'click #agregarUser' : 'add',
     'submit #addUser' : 'guardar',
     'click #verUser' : 'ver',
+    'click #new-close' : 'close',
   },
   
   initialize: function() {
-
     this.listenTo(app.Users, 'reset', this.addAll);
     this.listenTo(app.Users, 'change', this.addAll);
     app.Users.fetch();
     this.render();
   },
-  
   render: function() {
     $(this.el).html(this.template());
     this.$name  = this.$('#new-user-name');
@@ -28,9 +27,6 @@ app.UserView = Backbone.View.extend({
     $(this.el).find('#addUser').hide();
     $(this.el).find('#user-list').hide();
     return this;
-  },
-  validateField: function(event) {
-  console.log(event);
   },
   newAttributes: function() {
     return { 
@@ -59,7 +55,7 @@ app.UserView = Backbone.View.extend({
   ver: function () {
     this.addAll();
     $(this.el).find('#addUser').hide();
-    $(this.el).find('#user-list').show();
+    $(this.el).find('#user-lista').show();
     //cargo el formulario de vista + edicion para modificar el usuario
   },
   addOne: function( user ) {
@@ -71,4 +67,7 @@ app.UserView = Backbone.View.extend({
     app.Users.each(this.addOne, this);
     $('#user-list').show();
   },
+    close: function() {
+     this.ver();
+  }
 });

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/bootstrap.css">
   <link rel="stylesheet" href="assets/bootstrap-theme.css">
+  <link rel="stylesheet" href="assets/bootstrap-checkbox.css">
 </head>
 
 <body>
@@ -105,14 +106,10 @@
       
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button id="new-user" type="submit" class="btn btn-default"> GUARDAR</button>
-        
-        
-
-
+          <button id="new-user" type="submit" class="btn btn-default"> GUARDAR </button>
+          <div id="new-close" class="btn btn-default"> CERRAR </div>
         </div>
-      </div>
-      
+      </div> 
     </form>
 
     <div id="user-list" class="container">
@@ -143,17 +140,16 @@
     <td><%= name %></label></td>
     <td><%= mail %></label></td>
     <td><%= tel %></label></td>
-    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy">X</button> </td>
+    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
   
   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminUsuariosEdit"> 
-    
     <form id="editUser" class="form-horizontal container">
       <div class="form-group">
         <label for="edit-user-user" class="col-sm-2 control-label">Usuario: </label>
         <div class="col-sm-10">
-          <input id="edit-user-user" name="edit-user-user" type="text"  class="form-control" autofocus required value="<%= user %>">
+          <input id="edit-user-user" type="text"  class="form-control" autofocus required value="<%= user %>">
         </div>
       </div>
       <div class="form-group">
@@ -162,14 +158,12 @@
           <input type="password" class="form-control" id="edit-user-pass" required value="<%= pass %>">
         </div>
       </div>
-
       <div class="form-group">
         <label for="edit-user-name" class="col-sm-2 control-label">Nombre: </label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="edit-user-name" value="<%= name %>" required>
         </div>
       </div>
-        
       <div class="form-group">
         <label for="edit-user-mail" class="col-sm-2 control-label">Mail: </label>
         <div class="col-sm-10">
@@ -183,10 +177,10 @@
           <input type="number" class="form-control" id="edit-user-tel" required value="<%= tel %>">
         </div>
       </div>
-      
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button id="edit-user" type="submit" class="btn btn-default"> MODIFICAR</button>
+          <div id="edit-close" class="btn btn-default"> CERRAR </div>
         </div>
       </div>
     </form>
@@ -197,39 +191,88 @@
       <label id="agregarCategoria"  class="btn btn-primary">Agregar Cat</label>     
       <label id="verCategoria"  class="btn btn-primary">Ver Cat</label>
     </div>
-    <div id="addCategoria">
-      <label for="new-categoria-cod">Código: </label> 
-      <input id="new-categoria-cod" type="text" autofocus>
-      <label for="new-categoria-name">Nombre: </label> 
-      <input id="new-categoria-name" type="text" autofocus>
-      <label for="new-categoria-descripcion">Descripcion: </label>
-      <input id="new-categoria-descripcion" type="text">
-       <input id="new-categoria-descripcion" type="color">
-      <button id="new-categoria">NEW</button>
+    <form id="addCategoria" name="addCategoria" class="form-horizontal container">
+      <div class="form-group">
+        <label for="new-categoria-cod" class="col-sm-2 control-label">Código: </label>
+        <div class="col-sm-10">
+          <input id="new-categoria-cod" type="text"  class="form-control" autofocus required>
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="new-categoria-name" class="col-sm-2 control-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input id="new-categoria-name" type="text"  class="form-control" required>
+        </div>
+      </div>
+        <div class="form-group">
+        <label for="new-categoria-descripcion" class="col-sm-2 control-label">Descripción: </label>
+        <div class="col-sm-10">
+          <input id="new-categoria-descripcion" type="text"  class="form-control" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+         <button id="new-categoria" type="submit" class="btn btn-default">NEW</button>
+          <div id="new-close" class="btn btn-default"> CERRAR </div>
+        </div>
+      </div>
+    </form>
+    <div id="categoria-list">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+
+        <tbody id="categoria-lista">
+       
+        </tbody>
+      </table> 
     </div>
-    <div id="categoria-list"></div>
     <div id="edit-list"></div>
   </script>
 
     <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminCategoriasView"> 
-    <label for="cod">Código: </label><label id="cod"><%= cod %></label>
-    <label for="name">Nombre: </label><label id="name"><%= name %></label>
-    <label for="descripcion">Descripcion: </label><label id="descripcion"><%= descripcion %></label>
-    <button class="edit" value="">edit</button>
-    <button class="destroy"></button>
+    <td><%= cod %></label></td>
+    <td><%= name %></label></td>
+    <td><%= descripcion %></label></td>
+    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
+
 
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
   <script type="text/template" id="adminCategoriasEdit"> 
-    <div id="editCategoria">
-      <label for="edit-categoria-cod">Código: </label> 
-      <input id="edit-categoria-cod" type="text" value="<%= cod %>" autofocus>
-      <label for="edit-categoria-name">Nombre: </label>
-      <input id="edit-categoria-name" type="text" value="<%= name %>">
-      <label for="edit-categoria-descripcion">Descripción: </label>
-      <input id="edit-categoria-descripcion" type="text" value="<%= descripcion %>">
-      <button id="edit-categoria">SAVE</button>
+    <div class="container">
+    <form id="editCategoria" class="form-horizontal container">
+      <div class="form-group">
+        <label for="edit-categoria-cod" class="col-sm-2 control-label">Código: </label>
+        <div class="col-sm-10">
+          <input id="edit-categoria-cod" type="text"  class="form-control" autofocus required value="<%= cod %>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="edit-categoria-name" class="col-sm-2 control-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input id="edit-categoria-name" type="text"  class="form-control" autofocus required value="<%= name %>">
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="edit-categoria-descripcion" class="col-sm-2 control-label">Descripción: </label>
+        <div class="col-sm-10">
+          <input id="edit-categoria-descripcion" type="text"  class="form-control" autofocus required value="<%= descripcion %>">
+        </div>
+      </div> 
+      <div class="form-group">
+        <div class="col-sm-10">
+            <button id="edit-categoria" type="submit" class="btn btn-default"> MODIFICAR</button>
+           <div id="edit-close" class="btn btn-default"> CERRAR </div>
+        </div>
+      </div>    
+    </form> 
     </div>
   </script>
 
@@ -239,25 +282,143 @@
       <label id="agregarProducto">Agregar Prod</label>     
       <label id="verProducto">Ver Prod</label>
     </div>
-    <div id="addProducto">
-      <label for="new-producto-cod">Código: </label><input id="new-producto-cod" type="text" autofocus>
-      <label for="new-producto-name">Nombre: </label><input id="new-producto-name" type="text">
+     <form id="addProducto" name="addProducto" class="form-horizontal container">
+
+      <div class="form-group">
+        <label for="new-producto-cod" class="col-sm-2 control-label">Codigo: </label>
+        <div class="col-sm-10">
+          <input id="new-producto-cod" type="text"  class="form-control" autofocus required>
+        </div>
+      </div>
       
-      <label for="new-producto-descripcion">Descripción: </label><input id="new-producto-descripcion" type="password">
-      <label for="new-producto-descripcion2">2° Descripción: </label><input id="new-producto-descripcion2" type="password">
+      <div class="form-group">
+        <label for="new-producto-name" class="col-sm-2 control-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input id="new-producto-name" type="text"  class="form-control" autofocus required>
+        </div>
+      </div>
       
-      <label for="new-producto-talle">Talle: </label><input id="new-producto-talle" type="text">
-      <label for="new-producto-color">Color: </label><input id="new-producto-color" type="text">
-      <label for="new-producto-tamaño">Tamaño: </label><input id="new-producto-tamaño" type="text">
-      <label for="new-producto-color">Color: </label><input id="new-producto-color" type="text">
-      <label for="new-producto-categoria">Categoria: </label><input id="new-producto-categoria" type="text">
-      <label for="new-producto-categoria2">Categoria2: </label><input id="new-producto-categoria2" type="text">
+      <div class="form-group">
+        <label for="new-producto-descripcion" class="col-sm-2 control-label">Descripcion: </label>
+        <div class="col-sm-10">
+          <input id="new-producto-descripcion" type="text"  class="form-control" autofocus >
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label for="new-producto-descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
+        <div class="col-sm-10">
+          <input id="new-producto-descripcion2" type="text"  class="form-control" autofocus >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div id="categoria-list">
+          <label for="new-producto-categoria" class="col-sm-2 control-label">Categoria: </label>
+            <div class="col-sm-10">
+              <select id="new-producto-categoria" class="form-control">
+              </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div id="marca-list">
+          <label for="new-producto-marca" class="col-sm-2 control-label">Marca: </label>
+            <div class="col-sm-10">
+              <select id="new-producto-marca" class="form-control"> </select>
+            </div> 
+        </div>
+      </div>
+      
+      <div class="col-sm-12">
+        <h2>Talles:</h2>
+      </div>
+
+      <div class="form-group">
+        <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
+        <div class="col-sm-10">
+        <div class="col-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
+          <div class="col-sm-1"><span>35</span><input type="checkbox" id="talle35" class="checkbox" /></div>
+          <div class="col-sm-1"><span>36</span><input type="checkbox" id="talle36" class="checkbox" /></div>
+          <div class="col-sm-1"><span>37</span><input type="checkbox" id="talle37" class="checkbox" /></div>
+          <div class="col-sm-1"><span>38</span><input type="checkbox" id="talle38" class="checkbox" /></div>
+          <div class="col-sm-1"><span>39</span><input type="checkbox" id="talle39" class="checkbox" /></div> 
+            <div class="col-sm-1"><span>40</span><input type="checkbox" id="talle40" class="checkbox" /></div>
+          <div class="col-sm-1"><span>41</span><input type="checkbox" id="talle41" class="checkbox" /></div>
+          <div class="col-sm-1"><span>42</span><input type="checkbox" id="talle42" class="checkbox" /></div>
+          <div class="col-sm-1"><span>43</span><input type="checkbox" id="talle43" class="checkbox" /></div>
+          <div class="col-sm-1"><span>44</span><input type="checkbox" id="talle44" class="checkbox" /></div>
+          <div class="col-sm-1"><span>45</span><input type="checkbox" id="talle45" class="checkbox" /></div>
+          </div>
+     
+      <div class="form-group">
+        <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas niño: </label>
+        <div class="col-sm-10">
+        <div class="col-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
+          <div class="col-sm-1"><span>2</span><input type="checkbox" id="talle2" class="checkbox" /></div>
+          <div class="col-sm-1"><span>3</span><input type="checkbox" id="talle3" class="checkbox" /></div>
+          <div class="col-sm-1"><span>4</span><input type="checkbox" id="talle4" class="checkbox" /></div>
+          <div class="col-sm-1"><span>5</span><input type="checkbox" id="talle5" class="checkbox" /></div>
+          <div class="col-sm-1"><span>6</span><input type="checkbox" id="talle6" class="checkbox" /></div> 
+            <div class="col-sm-1"><span>7</span><input type="checkbox" id="talle7" class="checkbox" /></div>
+          <div class="col-sm-1"><span>8</span><input type="checkbox" id="talle8" class="checkbox" /></div>
+          <div class="col-sm-1"><span>9</span><input type="checkbox" id="talle9" class="checkbox" /></div>
+          <div class="col-sm-1"><span>10</span><input type="checkbox" id="talle10" class="checkbox" /></div>
+          <div class="col-sm-1"><span>11</span><input type="checkbox" id="talle11" class="checkbox" /></div>
+           <div class="col-sm-1"><span>12</span><input type="checkbox" id="talle12" class="checkbox" /></div>
+          <div class="col-sm-1"><span>13</span><input type="checkbox" id="talle13" class="checkbox" /></div>   
+           <div class="col-sm-1"><span>14</span><input type="checkbox" id="talle14" class="checkbox" /></div>
+          <div class="col-sm-1"><span>15</span><input type="checkbox" id="talle15" class="checkbox" /></div>  
+          <div class="col-sm-1"><span>16</span><input type="checkbox" id="talle16" class="checkbox" /></div> 
+      </div>
+      
+      <div class="form-group">
+        <label for="new-producto-tamaño" class="col-sm-2 control-label">Tamaño: </label>
+        <div class="col-sm-10">
+          <div class="col-sm-1">
+            <span>All</span><input type="checkbox" id="tamaño-all" class="checkbox" />
+          </div>
+          <div class="col-sm-1">
+            <span>XXS</span><input type="checkbox" id="talleXXS" class="checkbox" />
+          </div>
+          <div class="col-sm-1"><span>XS</span><input type="checkbox" id="talleXS" class="checkbox" /></div>
+          <div class="col-sm-1"><span>S</span><input type="checkbox" id="talleS" class="checkbox" /></div>
+          <div class="col-sm-1"><span>M</span><input type="checkbox" id="talleM" class="checkbox" /></div>
+          <div class="col-sm-1"><span>L</span><input type="checkbox" id="talleL" class="checkbox" /></div>
+          <div class="col-sm-1"><span>XL</span><input type="checkbox" id="talleXL" class="checkbox" /></div>
+          <div class="col-sm-1"><span>XXL</span><input type="checkbox" id="talleXXL" class="checkbox" /></div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="new-producto-talle" class="col-sm-2 control-label">Medidas: </label>
+        <div class="col-sm-10">
+         <div class="col-sm-1"><input type="text" id="new-producto-medidas" class="checkbox" /></div> 
+          </div>
+      </div>
+      
+
+      <div class="form-group">
+       
+          <label for="new-producto-marca" class="col-sm-2 control-label">Color: </label>
+            <div class="col-sm-10">
+              <div class="col-sm-1"><input type="color" id="new-producto-color1" class="form-control"> </select></div>
+              <div class="col-sm-1"><input type="color" id="new-producto-color2" class="form-control"> </select></div>
+              <div class="col-sm-1"><input type="color" id="new-producto-color3" class="form-control"> </select></div>
+              <div class="col-sm-1"><input type="color" id="new-producto-color4" class="form-control"> </select></div>
+              <div class="col-sm-1"><input type="color" id="new-producto-color5" class="form-control"> </select></div>
+            </div> 
+     
+      </div>
+
       <button id="new-producto">NEW</button>
     </div>
 
-    <div id="producto-list"></div>
-    <div id="edit-list"></div>
+   
   </script>
+
+   <script type="text/template" id="productoCategoria"></script>
 
   <script type="text/template" id="mainView"></script>
 
@@ -268,6 +429,9 @@
   <script src="js/lib/bootstrap.js"></script>
   <script src="js/lib/bootstrap-confirmation.js"></script>
   <script src="js/lib/bootbox.js"></script>
+  <script src="js/lib/jquery.tinycolorpicker.min.js"></script>
+   <script src="js/lib/bootstrap-checkbox.js"></script>
+  
   <script src="js/models/user.js"></script>
   <script src="js/models/categoria.js"></script>
   <script src="js/models/producto.js"></script>

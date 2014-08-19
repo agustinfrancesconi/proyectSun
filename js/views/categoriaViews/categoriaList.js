@@ -3,7 +3,7 @@ var app = app || {};
 
 app.CategoriaListView = Backbone.View.extend({
 
-  tagName: 'div',
+  tagName: 'tr',
 
   template: _.template( $('#adminCategoriasView').html() ),
 

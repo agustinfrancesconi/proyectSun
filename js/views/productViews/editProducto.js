@@ -31,6 +31,7 @@ app.EditProductoView = Backbone.View.extend({
     };
   },
   save: function() {
+    event.preventDefault();
     this.model.save( this.newAttributes());
   },
   close: function() {

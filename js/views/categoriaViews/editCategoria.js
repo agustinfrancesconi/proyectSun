@@ -8,7 +8,8 @@ app.EditCategoriaView = Backbone.View.extend({
 
   events: {
     'click .destroy': 'clear', 
-    'click #edit-categoria': 'save', 
+    'click #edit-categoria': 'save',
+    'click #edit-close': 'close',  
   },
   
   initialize: function() {

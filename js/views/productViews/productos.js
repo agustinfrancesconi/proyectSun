@@ -16,10 +16,10 @@ app.ProductoView = Backbone.View.extend({
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
     this.render();
-  },
-  
+  },  
   render: function() {
     $(this.el).html(this.template());
+    $('input[type="checkbox"]').checkbox();
     this.$name  = this.$('#new-producto-name');
     this.$producto  = this.$('#new-producto-producto');
     this.$mail  = this.$('#new-producto-mail');
@@ -28,7 +28,7 @@ app.ProductoView = Backbone.View.extend({
     $(this.el).find('#addproducto').hide();
     return this;
   },
-   newAttributes: function() {
+  newAttributes: function() {
     return { 
       //armo el producto con lo proveniente del formulario
       name: this.$name.val().trim(),

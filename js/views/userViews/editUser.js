@@ -9,6 +9,7 @@ app.EditUserView = Backbone.View.extend({
   events: {
     'click .destroy': 'clear', 
     'click #edit-user': 'save', 
+    'click #edit-close': 'close', 
   },
 
   initialize: function() {
@@ -31,16 +32,13 @@ app.EditUserView = Backbone.View.extend({
       pass: this.$pass.val().trim(),
     };
   },
-
   save: function() {
     this.model.save( this.newAttributes());
   },
   close: function() {
     // Remove view from DOM
-
     this.remove();  
     Backbone.View.prototype.remove.call(this);
-     $('#user-lista').show();
   }
 
 });
