@@ -23,10 +23,10 @@ app.ProductoView = Backbone.View.extend({
     this.$form = this.$('#addProducto');
     this.$cod  = this.$('#new-producto-cod');
     this.$name  = this.$('#new-producto-name');
-    this.$descripcion  = this.$('#new-producto-descripcion');
-    this.$descripcion2   = this.$('#new-producto-descripcion2');
-    this.$categoria  = this.$('#new-producto-categoria');
-    this.$marca = this.$('#new-producto-marca');
+    
+    this.$mail  = this.$('#new-producto-mail');
+    this.$tel   = this.$('#new-producto-tel');
+    this.$pass  = this.$('#new-producto-pass');
     for(x = 1 ; x<6 ; x++){this.imagenes(x);}
     $(this.el).find('#addproducto').hide();
     return this;
@@ -42,9 +42,9 @@ app.ProductoView = Backbone.View.extend({
     };
   },
   guardar : function (event) {
-    event.preventDefault();
+    
     this.imagePhp();
-    console.log($('#addProducto').serialize());
+    console.log(this.$form.element['canvas1']);
 /*    app.Productos.create( this.newAttributes() ); 
     this.$name.val('');
     this.$producto.val('');
@@ -138,15 +138,5 @@ app.ProductoView = Backbone.View.extend({
       }   
     } 
   },
-  chargeCategorias:function(){
-
-    this.$('#categoria-lista').html('');
-    app.Categorias.each(this.addOne, this);
-    var view = new app.CategoriaListView({ model: categoria });
-    $('#categoria-lista').append( view.render().el );
-  },
- 
-
-  
   
 });

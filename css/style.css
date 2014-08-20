@@ -1,0 +1,34 @@
+
+
+#mainapp {
+  width: 100%;
+  float: right;
+}
+
+#logo{
+  font-family:  'Century Schoolbook', Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  font-size: 2.75em;
+  letter-spacing: .2em;
+  line-height: 1.1em;
+  margin:0px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+
+#aside {
+  width: 10%;
+  height: 100%;
+}
+
+#addUser{
+  width: 40%;
+}
+
+
+.col1-sm-1 {
+  width: 35px;
+  float: left;
+}
