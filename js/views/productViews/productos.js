@@ -5,6 +5,9 @@ app.ProductoView = Backbone.View.extend({
   template: _.template( $('#adminProductos').html() ),
 
   events: {
+   
+    'click #' : 'checkTamaños',
+    'click #' : 'checkTamaños',
     'click #agregarProducto' : 'add',
     'submit #addProducto' : 'guardar',
     'click #verProducto' : 'ver',
@@ -12,39 +15,59 @@ app.ProductoView = Backbone.View.extend({
   
   
   initialize: function() {
+    $(this.el).html(this.template());
+    this.checkZapas();
+    this.checkTamaño();
+    this.checkNiño();
+    this.$cod  = this.$('#new-producto-cod');
+    this.$name  = this.$('#new-producto-name');
+    this.$descripcion  = this.$('#new-producto-descripcion');
+    this.$descripcion2  = this.$('#new-producto-descripcion2');
+    this.$categoria  = this.$('#new-categoria-categoria');
+    this.$marca  = this.$('#new-categoria-marca');
+    this.$medidas  = this.$('#new-categoria-color');
+
     this.listenTo(app.Productos, 'reset', this.addAll);
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
     this.render();
   },  
   render: function() {
-    $(this.el).html(this.template());
     $('input[type="checkbox"]').checkbox();
-    this.$form = this.$('#addProducto');
-    this.$cod  = this.$('#new-producto-cod');
-    this.$name  = this.$('#new-producto-name');
-    this.$descripcion  = this.$('#new-producto-descripcion');
-    this.$descripcion2   = this.$('#new-producto-descripcion2');
-    this.$categoria  = this.$('#new-producto-categoria');
-    this.$marca = this.$('#new-producto-marca');
     for(x = 1 ; x<6 ; x++){this.imagenes(x);}
     $(this.el).find('#addproducto').hide();
     return this;
   },
   newAttributes: function() {
-    return { 
-      //armo el producto con lo proveniente del formulario
-      name: this.$name.val().trim(),
-      producto: this.$producto.val().trim(),
-      mail: this.$mail.val().trim(),
-      tel:  this.$tel.val().trim(),
-      pass: this.$pass.val().trim(),
+    
+     console.log( this.$name.val().trim());
+  
+    arrayProducto = { 
+      cod: this.$cod,
+      name: this.$name,
+      descripcion: this.$descripcion,
+      descripcion2: this.$descripcion2,
+      talle: '',
+      color: this.$color,
+      tamaño: '',
+      medidas: this.$medidas,
+      categoria: this.$categoria,
+      marca: this.$marca,
+      imagen1: '',
+      imagen2: '',
+      imagen3: '',
+      imagen4: '',
+      imagen5: '',
     };
+
+
+    return arrayProducto;
   },
   guardar : function (event) {
     event.preventDefault();
     this.imagePhp();
-    console.log($('#addProducto').serialize());
+   
+   this.newAttributes();
 /*    app.Productos.create( this.newAttributes() ); 
     this.$name.val('');
     this.$producto.val('');
@@ -116,6 +139,32 @@ app.ProductoView = Backbone.View.extend({
       e.preventDefault(); 
       readImage(e.dataTransfer.files[0]);
     }, true);
+    });
+  },
+  checkZapas:function (){
+    var isCheck=true;
+     this.$('#zapas-all').click(function () {
+      if(isCheck){$('#zapas-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#zapas-all').closest('fieldset').find('input').prop('checked','');}
+      isCheck=!isCheck;
+    });
+  },
+  checkTamaño:function (){
+    var isCheck=true;
+     this.$('#tamaño-all').click(function () {
+      console.log("click");
+      if(isCheck){$('#tamaño-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#tamaño-all').closest('fieldset').find('input').prop('checked','');}
+      isCheck=!isCheck;
+    });
+  },
+  checkNiño:function (){
+    var isCheck=true;
+     this.$('#niño-all').click(function () {
+      console.log("click");
+      if(isCheck){$('#niño-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#niño-all').closest('fieldset').find('input').prop('checked','');}
+      isCheck=!isCheck;
     });
   },
   imagePhp:function () {
