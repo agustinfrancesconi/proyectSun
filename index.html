@@ -286,42 +286,43 @@
       <label id="agregarProducto">Agregar Prod</label>     
       <label id="verProducto">Ver Prod</label>
     </div>
-    <form id="addProducto" name="addProducto" method="post" class="form-horizontal container">
+    <form id="addProducto" name="addProducto" class="form-horizontal container">
+    <div>
      <!--CODIGO-->
       <div class="form-group">
-        <label for="new-producto-cod" class="col-sm-2 control-label">Codigo: </label>
+        <label for="cod" class="col-sm-2 control-label">Codigo: </label>
         <div class="col-sm-10">
-          <input id="new-producto-cod"  name="new-producto-cod" type="text"  class="form-control" autofocus required>
+          <input id="cod"  name="cod" type="text"  class="form-control" autofocus required>
         </div>
       </div>
      <!--NOMBRE-->
       <div class="form-group">
-        <label for="new-producto-name" class="col-sm-2 control-label">Nombre: </label>
+        <label for="name" class="col-sm-2 control-label">Nombre: </label>
         <div class="col-sm-10">
-          <input id="new-producto-name" name="new-producto-name" type="text"  class="form-control" autofocus required>
+          <input id="name" name="name" type="text"  class="form-control" autofocus required>
         </div>
       </div>
      <!--DESCRIPCION-->
       <div class="form-group">
-        <label for="new-producto-descripcion" class="col-sm-2 control-label">Descripcion: </label>
+        <label for="descripcion" class="col-sm-2 control-label">Descripcion: </label>
         <div class="col-sm-10">
-          <input id="new-producto-descripcion" name="new-producto-descripcion" type="text"  class="form-control" autofocus >
+          <input id="descripcion" name="descripcion" type="text"  class="form-control" autofocus >
         </div>
       </div>
       <!--DESCRIPCION2-->
       <div class="form-group">
-        <label for="new-producto-descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
+        <label for="descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
         <div class="col-sm-10">
-          <input id="new-producto-descripcion2" name="new-producto-descripcion2" type="text"  class="form-control" autofocus >
+          <input id="descripcion2" name="descripcion2" type="text"  class="form-control" autofocus >
         </div>
       </div>
       <hr> 
       <!--CATEGORIA-->
       <div class="form-group">
         <div id="categoria-list">
-          <label for="new-producto-categoria" class="col-sm-2 control-label">Categoria: </label>
+          <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
             <div class="col-sm-10">
-              <select id="new-producto-categoria" class="form-control">
+              <select id="categoria" class="form-control">
               </select>
             </div>
         </div>
@@ -329,31 +330,32 @@
      <!--MARCA-->
       <div class="form-group">
         <div id="marca-list">
-          <label for="new-producto-marca" class="col-sm-2 control-label">Marca: </label>
+          <label for="marca" class="col-sm-2 control-label">Marca: </label>
             <div class="col-sm-10">
-              <select id="new-producto-marca" class="form-control"> </select>
+              <select id="marca" class="form-control"> </select>
             </div> 
         </div>
       </div>
       
       <hr>
+
       <!--TALLE ZAPATILLA-->
       <div class="form-group">
         <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
         <div class="col-sm-10">
         <fieldset>
         <div class="col1-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>35</span><input type="checkbox" id="talle35" name="talle35" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>36</span><input type="checkbox" id="talle36" name="talle36"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>37</span><input type="checkbox" id="talle37" name="talle37" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>38</span><input type="checkbox" id="talle38" name="talle38" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>39</span><input type="checkbox" id="talle39" name="talle39" class="checkbox" /></div> 
-            <div class="col1-sm-1"><span>40</span><input type="checkbox" id="talle40" name="talle40" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>41</span><input type="checkbox" id="talle41" name="talle41"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>42</span><input type="checkbox" id="talle42" name="talle42"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>43</span><input type="checkbox" id="talle43" name="talle43"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>44</span><input type="checkbox" id="talle44" name="talle44" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>45</span><input type="checkbox" id="talle45" name="talle45" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>35</span><input type="checkbox" id="35" name="talle35" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>36</span><input type="checkbox" id="36" name="talle36"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>37</span><input type="checkbox" id="37" name="talle37" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>38</span><input type="checkbox" id="38" name="talle38" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>39</span><input type="checkbox" id="39" name="talle39" class="checkbox" /></div> 
+          <div class="col1-sm-1"><span>40</span><input type="checkbox" id="40" name="talle40" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>41</span><input type="checkbox" id="41" name="talle41"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>42</span><input type="checkbox" id="42" name="talle42"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>43</span><input type="checkbox" id="43" name="talle43"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>44</span><input type="checkbox" id="44" name="talle44" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>45</span><input type="checkbox" id="45" name="talle45" class="checkbox" /></div>
           </fieldset>
         </div>
       </div>
@@ -363,21 +365,21 @@
         <div class="col-sm-10">
           <fieldset>
           <div class="col1-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>2</span><input type="checkbox" id="talle2" name="talle2" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>3</span><input type="checkbox" id="talle3" name="talle3" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>4</span><input type="checkbox" id="talle4" name="talle4" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>5</span><input type="checkbox" id="talle5" name="talle5" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>6</span><input type="checkbox" id="talle6" name="talle6" class="checkbox" /></div> 
-          <div class="col1-sm-1"><span>7</span><input type="checkbox" id="talle7" name="talle7" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>8</span><input type="checkbox" id="talle8" name="talle8"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>9</span><input type="checkbox" id="talle9" name="talle9" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>10</span><input type="checkbox" id="talle10" name="talle10" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>11</span><input type="checkbox" id="talle11" name="talle11" class="checkbox" /></div>
-           <div class="col1-sm-1"><span>12</span><input type="checkbox" id="talle12" name="talle12"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>13</span><input type="checkbox" id="talle13" name="talle13"class="checkbox" /></div>   
-           <div class="col1-sm-1"><span>14</span><input type="checkbox" id="talle14" name="talle14"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>15</span><input type="checkbox" id="talle15" name="talle15"class="checkbox" /></div>  
-          <div class="col1-sm-1"><span>16</span><input type="checkbox" id="talle16" name="talle16"class="checkbox" /></div> 
+          <div class="col1-sm-1"><span>2</span><input type="checkbox" id="2" name="talle2" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>3</span><input type="checkbox" id="3" name="talle3" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>4</span><input type="checkbox" id="4" name="talle4" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>5</span><input type="checkbox" id="5" name="talle5" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>6</span><input type="checkbox" id="6" name="talle6" class="checkbox" /></div> 
+          <div class="col1-sm-1"><span>7</span><input type="checkbox" id="7" name="talle7" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>8</span><input type="checkbox" id="8" name="talle8"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>9</span><input type="checkbox" id="9" name="talle9" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>10</span><input type="checkbox" id="10" name="talle10" class="checkbox" /></div>
+          <div class="col1-sm-1"><span>11</span><input type="checkbox" id="11" name="talle11" class="checkbox" /></div>
+           <div class="col1-sm-1"><span>12</span><input type="checkbox" id="12" name="talle12"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>13</span><input type="checkbox" id="13" name="talle13"class="checkbox" /></div>   
+           <div class="col1-sm-1"><span>14</span><input type="checkbox" id="14" name="talle14"class="checkbox" /></div>
+          <div class="col1-sm-1"><span>15</span><input type="checkbox" id="15" name="talle15"class="checkbox" /></div>  
+          <div class="col1-sm-1"><span>16</span><input type="checkbox" id="16" name="talle16"class="checkbox" /></div> 
           </fieldset>
         </div>
       </div>
@@ -403,9 +405,9 @@
       </div>
       <!--MEDIDAS-->
       <div class="form-group">
-        <label for="new-producto-medidas" class="col-sm-2 control-label">Medidas: </label>
+        <label for="medidas" class="col-sm-2 control-label">Medidas: </label>
         <div class="col-sm-10">
-          <input type="text" id="new-producto-medidas" name="new-producto-medidas" class="form-control"></input>
+          <input type="text" id="medidas" name="medidas" class="form-control"></input>
         </div> 
       </div>
       
@@ -413,9 +415,9 @@
 
       <!--COLOR-->
       <div class="form-group">
-        <label for="new-producto-color" class="col-sm-2 control-label">Color: </label>
+        <label for="color" class="col-sm-2 control-label">Color: </label>
         <div class="col-sm-10">
-          <input type="text" id="new-producto-color"  class="form-control"> </input>
+          <input type="text" id="color"  class="form-control"> </input>
         </div> 
       </div>
 
@@ -425,27 +427,27 @@
         <div class="col-sm-10">
             <div class="col-sm-4" >
               <div id="preview1"  >
-                <canvas id="canvas1" name="canvas1" class="img-thumbnail"></canvas>
+                <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview2"  >
-                <canvas id="canvas2"  name="canvas2" class="img-thumbnail"></canvas>
+                <canvas id="imagen2"  name="imagen2" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview3"  >
-                <canvas id="canvas3" name="canvas3" class="img-thumbnail"></canvas>
+                <canvas id="imagen3" name="imagen3" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview4"  >
-                <canvas id="canvas4"  name="canvas4" class="img-thumbnail"></canvas>
+                <canvas id="imagen4"  name="imagen4" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview5"  >
-                <canvas id="canvas5"  name="canvas5" class="img-thumbnail"></canvas>
+                <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
               </div>
             </div>
         </div> 
@@ -460,6 +462,8 @@
           </div>
         </div> 
       </div>
+    </div>
+
     </div>
    </form>
   </script>

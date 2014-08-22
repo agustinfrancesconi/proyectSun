@@ -13,7 +13,6 @@ app.ProductoView = Backbone.View.extend({
     'click #verProducto' : 'ver',
   },
   
-  
   initialize: function() {
     $(this.el).html(this.template());
     this.checkZapas();
@@ -26,7 +25,6 @@ app.ProductoView = Backbone.View.extend({
     this.$categoria  = this.$('#new-categoria-categoria');
     this.$marca  = this.$('#new-categoria-marca');
     this.$medidas  = this.$('#new-categoria-color');
-
     this.listenTo(app.Productos, 'reset', this.addAll);
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
@@ -39,68 +37,59 @@ app.ProductoView = Backbone.View.extend({
     return this;
   },
   newAttributes: function() {
-    
-     console.log( this.$name.val().trim());
-  
-    arrayProducto = { 
-      cod: this.$cod,
-      name: this.$name,
-      descripcion: this.$descripcion,
-      descripcion2: this.$descripcion2,
-      talle: '',
-      color: this.$color,
-      tamaño: '',
-      medidas: this.$medidas,
-      categoria: this.$categoria,
-      marca: this.$marca,
-      imagen1: '',
-      imagen2: '',
-      imagen3: '',
-      imagen4: '',
-      imagen5: '',
-    };
-
-
-    return arrayProducto;
   },
   guardar : function (event) {
     event.preventDefault();
     this.imagePhp();
-   
-   this.newAttributes();
-/*    app.Productos.create( this.newAttributes() ); 
-    this.$name.val('');
-    this.$producto.val('');
-    this.$pass.val('');
-    this.$mail.val('');
-    this.$tel.val('');*/
+  // this.newAttributes();
+    var formData = {};
+    $( '#addProducto div' ).children( 'input' ).each( function( i, el ) {
+        if( $( el ).val() != '' && $(el).val() != 'on' )
+        {
+          formData[ el.id ] = $( el ).val();
+        }
+    });
+    formData[ 'tamaño' ]  = '';
+    $("input[type='checkbox']:checked").each( 
+      function(i, el) { 
+       formData[ 'tamaño' ] += el.id + ',';
+      }   
+    );
+    var x= 0;
+    $("canvas").each( 
+      function(i, el, x) { 
+        x++;
+       formData[ 'imagen'+x ] += el.id + ',';
+       
+      }   
+    );
 
-    $(this.el).find('#addproducto').hide();
+    app.Productos.create( formData );
   },
   add: function () {
-    $(this.el).find('#producto-list').hide();
-    $(this.el).find('#addproducto').show();
+   /* $(this.el).find('#producto-list').hide();
+    $(this.el).find('#addproducto').show();*/
   },
   ver: function () {
-    this.addAll();
+   /* this.addAll();
     $(this.el).find('#addproducto').hide();
-    $(this.el).find('#producto-list').show();
+    $(this.el).find('#producto-list').show();*/
     //cargo el formulario de vista + edicion para modificar el usuario
   },
   addOne: function( producto ) {
-    var view = new app.ProductoListView({ model: producto });
-    $('#producto-list').append( view.render().el );
+   /* var view = new app.ProductoListView({ model: producto });
+    $('#producto-list').append( view.render().el );*/
   },
   addAll: function() {
-    this.$('#producto-list').html('');
-    app.Productos.each(this.addOne, this);
+    /*this.$('#producto-list').html('');
+    app.Productos.each(this.addOne, this);*/
   },
   imagenes : function (x){
     require(["dojo/dom", "dojo/domReady!"], function(dom){
     var MAX_HEIGHT = 200;
     var target = dom.byId("preview"+x),
       preview = dom.byId("preview"+x),
-      canvas = dom.byId("canvas"+x);
+      canvas = dom.byId("imagen"+x);
 
     var render = function(src){
       var img = new Image();
@@ -152,16 +141,16 @@ app.ProductoView = Backbone.View.extend({
   checkTamaño:function (){
     var isCheck=true;
      this.$('#tamaño-all').click(function () {
-      console.log("click");
+
       if(isCheck){$('#tamaño-all').closest('fieldset').find('input').prop('checked','checked');}
       else{$('#tamaño-all').closest('fieldset').find('input').prop('checked','');}
       isCheck=!isCheck;
-    });
+    });  
   },
   checkNiño:function (){
     var isCheck=true;
      this.$('#niño-all').click(function () {
-      console.log("click");
+    
       if(isCheck){$('#niño-all').closest('fieldset').find('input').prop('checked','checked');}
       else{$('#niño-all').closest('fieldset').find('input').prop('checked','');}
       isCheck=!isCheck;
@@ -170,7 +159,7 @@ app.ProductoView = Backbone.View.extend({
   imagePhp:function () {
     var x = 1;
     for(x=1;x<6;x++){
-      var canvas = document.getElementById("canvas"+x);
+      var canvas = document.getElementById("imagen"+x);
       if(canvas.width < 300 ){
     /*  require(["dojo/request"], function(request){
           request.post("../php/saveImage.php", {
@@ -188,7 +177,6 @@ app.ProductoView = Backbone.View.extend({
     } 
   },
   chargeCategorias:function(){
-
     this.$('#categoria-lista').html('');
     app.Categorias.each(this.addOne, this);
     var view = new app.CategoriaListView({ model: categoria });
