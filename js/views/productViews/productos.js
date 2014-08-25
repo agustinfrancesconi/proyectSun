@@ -5,8 +5,6 @@ app.ProductoView = Backbone.View.extend({
   template: _.template( $('#adminProductos').html() ),
 
   events: {
-   
-    'click #' : 'checkTamaños',
     'click #' : 'checkTamaños',
     'click #agregarProducto' : 'add',
     'submit #addProducto' : 'guardar',
@@ -15,19 +13,15 @@ app.ProductoView = Backbone.View.extend({
   
   initialize: function() {
     $(this.el).html(this.template());
+ 
     this.checkZapas();
     this.checkTamaño();
     this.checkNiño();
-    this.$cod  = this.$('#new-producto-cod');
-    this.$name  = this.$('#new-producto-name');
-    this.$descripcion  = this.$('#new-producto-descripcion');
-    this.$descripcion2  = this.$('#new-producto-descripcion2');
-    this.$categoria  = this.$('#new-categoria-categoria');
-    this.$marca  = this.$('#new-categoria-marca');
-    this.$medidas  = this.$('#new-categoria-color');
     this.listenTo(app.Productos, 'reset', this.addAll);
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
+    app.Categorias.fetch();
+    this.chargeCategorias();
     this.render();
   },  
   render: function() {
@@ -36,12 +30,9 @@ app.ProductoView = Backbone.View.extend({
     $(this.el).find('#addproducto').hide();
     return this;
   },
-  newAttributes: function() {
-  },
   guardar : function (event) {
     event.preventDefault();
     this.imagePhp();
-  // this.newAttributes();
     var formData = {};
     $( '#addProducto div' ).children( 'input' ).each( function( i, el ) {
         if( $( el ).val() != '' && $(el).val() != 'on' )
@@ -56,33 +47,16 @@ app.ProductoView = Backbone.View.extend({
       }   
     );
     var x= 0;
+    formData[ 'imagen' ] = '';
     $("canvas").each( 
       function(i, el, x) { 
         x++;
-       formData[ 'imagen'+x ] += el.id + ',';
-       
+        if(el.width < 300 ){
+          formData[ 'imagen' ] += el.id + ',';     
+        }
       }   
     );
-
     app.Productos.create( formData );
-  },
-  add: function () {
-   /* $(this.el).find('#producto-list').hide();
-    $(this.el).find('#addproducto').show();*/
-  },
-  ver: function () {
-   /* this.addAll();
-    $(this.el).find('#addproducto').hide();
-    $(this.el).find('#producto-list').show();*/
-    //cargo el formulario de vista + edicion para modificar el usuario
-  },
-  addOne: function( producto ) {
-   /* var view = new app.ProductoListView({ model: producto });
-    $('#producto-list').append( view.render().el );*/
-  },
-  addAll: function() {
-    /*this.$('#producto-list').html('');
-    app.Productos.each(this.addOne, this);*/
   },
   imagenes : function (x){
     require(["dojo/dom", "dojo/domReady!"], function(dom){
@@ -157,6 +131,7 @@ app.ProductoView = Backbone.View.extend({
     });
   },
   imagePhp:function () {
+
     var x = 1;
     for(x=1;x<6;x++){
       var canvas = document.getElementById("imagen"+x);
@@ -171,19 +146,19 @@ app.ProductoView = Backbone.View.extend({
               console.log("The server returned: ", text);
           });
         });*/
-        console.log("ajax para canvas"+x);
-        console.log(canvas.toDataURL("image/png"));
       }   
     } 
   },
   chargeCategorias:function(){
-    this.$('#categoria-lista').html('');
-    app.Categorias.each(this.addOne, this);
-    var view = new app.CategoriaListView({ model: categoria });
-    $('#categoria-lista').append( view.render().el );
-  },
- 
+   //$('#categoria-select').html('');
+   $("#categoria-select").append("<option value='31'>31</option>");
+    app.Categorias.each(
+      function (i, categoria){
+        console.log($("#categoria-select"));
+        $("#categoria-select").append($("<option>").attr("value", categoria).text(categoria));
+      }
+    );
+  },  
 
-  
   
 });

@@ -1,7 +1,8 @@
 // Movie Router
 var Workspace = Backbone.Router.extend({
   routes: {
-  	'#' 				: '', 
+    ''         : 'main', 
+  	'#' 				: 'main', 
     'login'         : 'login', 
   	'producto/:id' 	: 'viewProduct', 
   	'productos' 	: 'mainProductos',
@@ -20,6 +21,11 @@ var Workspace = Backbone.Router.extend({
     }else{
       
     }
+  },main: function () {
+     if(this.validate()){
+      $('#mainapp').html(new app.MainProducto().render().el);
+    }  
+
   },
   mainUsuarios: function() {
     if(this.validate()){
@@ -28,6 +34,7 @@ var Workspace = Backbone.Router.extend({
   },
   mainProductos: function() {
     if(this.validate()){
+      $('#mainapp').html('');
       $('#mainapp').html(new app.ProductoView().render().el);
     }  
   },

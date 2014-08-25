@@ -33,6 +33,7 @@
   <section id="sunapp">
     <div id="menuAdmin"></div>
   </seccion>
+
   <section id="mainapp">
   </seccion>
 
@@ -286,145 +287,147 @@
       <label id="agregarProducto">Agregar Prod</label>     
       <label id="verProducto">Ver Prod</label>
     </div>
+    
     <form id="addProducto" name="addProducto" class="form-horizontal container">
-    <div>
-     <!--CODIGO-->
-      <div class="form-group">
-        <label for="cod" class="col-sm-2 control-label">Codigo: </label>
-        <div class="col-sm-10">
-          <input id="cod"  name="cod" type="text"  class="form-control" autofocus required>
+      <div>
+        <!--CODIGO-->
+        <div class="form-group">
+          <label for="cod" class="col-sm-2 control-label">Codigo: </label>
+          <div class="col-sm-10">
+            <input id="cod"  name="cod" type="text"  class="form-control" autofocus required>
+          </div>
         </div>
-      </div>
-     <!--NOMBRE-->
-      <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Nombre: </label>
-        <div class="col-sm-10">
-          <input id="name" name="name" type="text"  class="form-control" autofocus required>
+        <!--NOMBRE-->
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Nombre: </label>
+          <div class="col-sm-10">
+            <input id="name" name="name" type="text"  class="form-control" autofocus required>
+          </div>
         </div>
-      </div>
-     <!--DESCRIPCION-->
-      <div class="form-group">
-        <label for="descripcion" class="col-sm-2 control-label">Descripcion: </label>
-        <div class="col-sm-10">
-          <input id="descripcion" name="descripcion" type="text"  class="form-control" autofocus >
+        <!--DESCRIPCION-->
+        <div class="form-group">
+          <label for="descripcion" class="col-sm-2 control-label">Descripcion: </label>
+          <div class="col-sm-10">
+            <input id="descripcion" name="descripcion" type="text"  class="form-control" autofocus >
+          </div>
         </div>
-      </div>
-      <!--DESCRIPCION2-->
-      <div class="form-group">
-        <label for="descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
-        <div class="col-sm-10">
-          <input id="descripcion2" name="descripcion2" type="text"  class="form-control" autofocus >
+        <!--DESCRIPCION2-->
+        <div class="form-group">
+          <label for="descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
+          <div class="col-sm-10">
+            <input id="descripcion2" name="descripcion2" type="text"  class="form-control" autofocus >
+          </div>
         </div>
-      </div>
-      <hr> 
-      <!--CATEGORIA-->
-      <div class="form-group">
-        <div id="categoria-list">
-          <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
-            <div class="col-sm-10">
-              <select id="categoria" class="form-control">
-              </select>
-            </div>
-        </div>
-      </div>
-     <!--MARCA-->
-      <div class="form-group">
-        <div id="marca-list">
-          <label for="marca" class="col-sm-2 control-label">Marca: </label>
-            <div class="col-sm-10">
-              <select id="marca" class="form-control"> </select>
-            </div> 
-        </div>
-      </div>
-      
-      <hr>
 
-      <!--TALLE ZAPATILLA-->
-      <div class="form-group">
-        <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
-        <div class="col-sm-10">
-        <fieldset>
-        <div class="col1-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>35</span><input type="checkbox" id="35" name="talle35" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>36</span><input type="checkbox" id="36" name="talle36"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>37</span><input type="checkbox" id="37" name="talle37" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>38</span><input type="checkbox" id="38" name="talle38" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>39</span><input type="checkbox" id="39" name="talle39" class="checkbox" /></div> 
-          <div class="col1-sm-1"><span>40</span><input type="checkbox" id="40" name="talle40" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>41</span><input type="checkbox" id="41" name="talle41"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>42</span><input type="checkbox" id="42" name="talle42"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>43</span><input type="checkbox" id="43" name="talle43"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>44</span><input type="checkbox" id="44" name="talle44" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>45</span><input type="checkbox" id="45" name="talle45" class="checkbox" /></div>
-          </fieldset>
+        <hr> 
+
+        <!--CATEGORIA-->
+        <div class="form-group">
+            <label for="categoria-select" class="col-sm-2 control-label">Categoria: </label>
+              <div class="col-sm-10">
+                <select id="categoria" name="categoria" class="form-control" data-shadow="true" data-mini="true">
+          
+                </select>
+          </div>
         </div>
-      </div>
-     <!--TALLE ZAPATILLA NIÑO-->
-      <div class="form-group">
-        <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas niño: </label>
-        <div class="col-sm-10">
+       <!--MARCA-->
+        <div class="form-group">
+          <div id="marca-list">
+            <label for="marca" class="col-sm-2 control-label">Marca: </label>
+              <div class="col-sm-10">
+                <select id="marca" class="form-control"  data-shadow="true" data-mini="true"> </select>
+              </div> 
+          </div>
+        </div>
+  
+        <hr>
+
+        <!--TALLE ZAPATILLA-->
+        <div class="form-group">
+          <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
+          <div class="col-sm-10">
           <fieldset>
-          <div class="col1-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>2</span><input type="checkbox" id="2" name="talle2" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>3</span><input type="checkbox" id="3" name="talle3" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>4</span><input type="checkbox" id="4" name="talle4" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>5</span><input type="checkbox" id="5" name="talle5" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>6</span><input type="checkbox" id="6" name="talle6" class="checkbox" /></div> 
-          <div class="col1-sm-1"><span>7</span><input type="checkbox" id="7" name="talle7" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>8</span><input type="checkbox" id="8" name="talle8"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>9</span><input type="checkbox" id="9" name="talle9" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>10</span><input type="checkbox" id="10" name="talle10" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>11</span><input type="checkbox" id="11" name="talle11" class="checkbox" /></div>
-           <div class="col1-sm-1"><span>12</span><input type="checkbox" id="12" name="talle12"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>13</span><input type="checkbox" id="13" name="talle13"class="checkbox" /></div>   
-           <div class="col1-sm-1"><span>14</span><input type="checkbox" id="14" name="talle14"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>15</span><input type="checkbox" id="15" name="talle15"class="checkbox" /></div>  
-          <div class="col1-sm-1"><span>16</span><input type="checkbox" id="16" name="talle16"class="checkbox" /></div> 
-          </fieldset>
-        </div>
-      </div>
-      <!--TALLE -->
-      <div class="form-group">
-        <label for="new-producto-tamaño" class="col-sm-2 control-label">Tamaño: </label>
-        <div class="col-sm-10">
-        <fieldset>
-          <div class="col1-sm-1">
-            <span>All</span><input type="checkbox" id="tamaño-all" class="checkbox" />
+          <div class="col1-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>35</span><input type="checkbox" id="35" name="talle35" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>36</span><input type="checkbox" id="36" name="talle36"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>37</span><input type="checkbox" id="37" name="talle37" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>38</span><input type="checkbox" id="38" name="talle38" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>39</span><input type="checkbox" id="39" name="talle39" class="checkbox" /></div> 
+            <div class="col1-sm-1"><span>40</span><input type="checkbox" id="40" name="talle40" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>41</span><input type="checkbox" id="41" name="talle41"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>42</span><input type="checkbox" id="42" name="talle42"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>43</span><input type="checkbox" id="43" name="talle43"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>44</span><input type="checkbox" id="44" name="talle44" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>45</span><input type="checkbox" id="45" name="talle45" class="checkbox" /></div>
+            </fieldset>
           </div>
-          <div class="col1-sm-1">
-            <span>XXS</span><input type="checkbox" id="talleXXS" name="talleXXS" class="checkbox" />
-          </div>
-          <div class="col1-sm-1"><span>XS</span><input type="checkbox" id="talleXS" name="talleXS"class="checkbox" /></div>
-          <div class="col1-sm-1"><span>S</span><input type="checkbox" id="talleS" name="talleS" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>M</span><input type="checkbox" id="talleM" name="talleM" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>L</span><input type="checkbox" id="talleL" name="talleL" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>XL</span><input type="checkbox" id="talleXL" name="talleXL" class="checkbox" /></div>
-          <div class="col1-sm-1"><span>XXL</span><input type="checkbox" id="talleXXL" name="talleXXL" class="checkbox" /></div>
-          </fieldset>
         </div>
-      </div>
-      <!--MEDIDAS-->
-      <div class="form-group">
-        <label for="medidas" class="col-sm-2 control-label">Medidas: </label>
-        <div class="col-sm-10">
-          <input type="text" id="medidas" name="medidas" class="form-control"></input>
-        </div> 
-      </div>
-      
-      <hr>
+       <!--TALLE ZAPATILLA NIÑO-->
+        <div class="form-group">
+          <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas niño: </label>
+          <div class="col-sm-10">
+            <fieldset>
+            <div class="col1-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>2</span><input type="checkbox" id="2" name="talle2" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>3</span><input type="checkbox" id="3" name="talle3" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>4</span><input type="checkbox" id="4" name="talle4" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>5</span><input type="checkbox" id="5" name="talle5" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>6</span><input type="checkbox" id="6" name="talle6" class="checkbox" /></div> 
+            <div class="col1-sm-1"><span>7</span><input type="checkbox" id="7" name="talle7" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>8</span><input type="checkbox" id="8" name="talle8"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>9</span><input type="checkbox" id="9" name="talle9" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>10</span><input type="checkbox" id="10" name="talle10" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>11</span><input type="checkbox" id="11" name="talle11" class="checkbox" /></div>
+             <div class="col1-sm-1"><span>12</span><input type="checkbox" id="12" name="talle12"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>13</span><input type="checkbox" id="13" name="talle13"class="checkbox" /></div>   
+             <div class="col1-sm-1"><span>14</span><input type="checkbox" id="14" name="talle14"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>15</span><input type="checkbox" id="15" name="talle15"class="checkbox" /></div>  
+            <div class="col1-sm-1"><span>16</span><input type="checkbox" id="16" name="talle16"class="checkbox" /></div> 
+            </fieldset>
+          </div>
+        </div>
+        <!--TALLE -->
+        <div class="form-group">
+          <label for="new-producto-tamaño" class="col-sm-2 control-label">Tamaño: </label>
+          <div class="col-sm-10">
+          <fieldset>
+            <div class="col1-sm-1">
+              <span>All</span><input type="checkbox" id="tamaño-all" class="checkbox" />
+            </div>
+            <div class="col1-sm-1">
+              <span>XXS</span><input type="checkbox" id="talleXXS" name="talleXXS" class="checkbox" />
+            </div>
+            <div class="col1-sm-1"><span>XS</span><input type="checkbox" id="talleXS" name="talleXS"class="checkbox" /></div>
+            <div class="col1-sm-1"><span>S</span><input type="checkbox" id="talleS" name="talleS" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>M</span><input type="checkbox" id="talleM" name="talleM" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>L</span><input type="checkbox" id="talleL" name="talleL" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>XL</span><input type="checkbox" id="talleXL" name="talleXL" class="checkbox" /></div>
+            <div class="col1-sm-1"><span>XXL</span><input type="checkbox" id="talleXXL" name="talleXXL" class="checkbox" /></div>
+            </fieldset>
+          </div>
+        </div>
+        <!--MEDIDAS-->
+        <div class="form-group">
+          <label for="medidas" class="col-sm-2 control-label">Medidas: </label>
+          <div class="col-sm-10">
+            <input type="text" id="medidas" name="medidas" class="form-control"></input>
+          </div> 
+        </div>
+        
+        <hr>
 
-      <!--COLOR-->
-      <div class="form-group">
-        <label for="color" class="col-sm-2 control-label">Color: </label>
-        <div class="col-sm-10">
-          <input type="text" id="color"  class="form-control"> </input>
-        </div> 
-      </div>
+        <!--COLOR-->
+        <div class="form-group">
+          <label for="color" class="col-sm-2 control-label">Color: </label>
+          <div class="col-sm-10">
+            <input type="text" id="color"  class="form-control"> </input>
+          </div> 
+        </div>
 
-      <!--IMAGENES-->
-      <div class="form-group">
-        <label for="new-producto-color" class="col-sm-2 control-label">Imagenes: </label>
-        <div class="col-sm-10">
+        <!--IMAGENES-->
+        <div class="form-group">
+          <label for="new-producto-color" class="col-sm-2 control-label">Imagenes: </label>
+          <div class="col-sm-10">
             <div class="col-sm-4" >
               <div id="preview1"  >
                 <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
@@ -450,30 +453,42 @@
                 <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
               </div>
             </div>
-        </div> 
-      </div>
-      <hr>
-      <div class="form-group">
-        <div class="col-sm-5">
+          </div> 
+        </div>
+        <hr>
+        
+        <div class="form-group">
+          <div class="col-sm-5">
           </div>
-            <div class="col-sm-7">
-              <button id="new-producto" type="submit" class="btn btn-default"> GUARDAR</button>
+          <div class="col-sm-7">
+            <button id="new-producto" type="submit" class="btn btn-default"> GUARDAR</button>
             <div id="close-producto" class="btn btn-default"> CERRAR </div>
           </div>
-        </div> 
+        </div>
       </div>
-    </div>
-
-    </div>
-   </form>
+    </form>
   </script>
 
-   <script type="text/template" id="productoCategoria">
-    <option value ="sydney">Sydney</option>
-   </script>
+
+  <script type="text/template" id="productos-tabla">
+    <!-- Template para los productos   -->
+    <div id="tabla-productos">
+    </div>
+  </script>
+  <script type="text/template" id="productoVista">
+    <!-- Template para los productos   -->
+    <div id="contenedor-producto">
+      <image src="<%= imagen %>" alt="" >
+      <div id="nombre">
+        <span><%= name %></span>
+      </div>
+      <div id="descripcion">
+        <span><%= descripcion %></span>
+      </div>
+    </div>
+  </script>
 
   <script type="text/template" id="mainView"></script>
-
   <script src="js/lib/jquery.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone-min.js"></script>
@@ -483,7 +498,7 @@
   <script src="js/lib/bootbox.js"></script>
   <script src="js/lib/jquery.tinycolorpicker.min.js"></script>
   <script src="js/lib/bootstrap-checkbox.js"></script>
-    <script src="js/lib/dojo.js"></script>
+  <script src="js/lib/dojo.js"></script>
   <script src="js/models/user.js"></script>
   <script src="js/models/categoria.js"></script>
   <script src="js/models/producto.js"></script>
@@ -499,6 +514,9 @@
   <script src="js/views/productViews/productos.js"></script>
   <script src="js/views/productViews/editProducto.js"></script>
   <script src="js/views/productViews/productoList.js"></script>
+  <script src="js/views/mainProduct/bigProducto.js"></script>
+  <script src="js/views/mainProduct/mainListProducto.js"></script>
+  <script src="js/views/mainProduct/mainProducto.js"></script>
   <script src="js/views/login.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/routers/router.js"></script>
