@@ -31,10 +31,13 @@
   </div>!-->
 
   <section id="sunapp">
-    <div id="menuAdmin"></div>
+    <div id="menuAdmin">
+      
+    </div>
   </seccion>
 
   <section id="mainapp">
+  
   </seccion>
 
   <!-- TEMPLATE LOGIN!-->
@@ -62,7 +65,7 @@
     </div> 
   </script>
   
-   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Vista principal!-->
   <script type="text/template" id="adminUsuarios"> 
     <div id="menuUser" class="8col-md-8">
       <button id="agregarUser" class="btn btn-primary">Agregar</button>     
@@ -134,7 +137,7 @@
     <div id="edit-list"></div>
   </script>
   
-   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Tabla de usuarios!-->
   <script type="text/template" id="adminUsuariosView"> 
     <td><%= user %></label></td>
     <td><%= name %></label></td>
@@ -143,7 +146,7 @@
     <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
   
-  <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Formulario de edición de usuarios!-->
   <script type="text/template" id="adminUsuariosEdit"> 
     <form id="editUser" class="form-horizontal container">
       <div class="form-group">
@@ -185,7 +188,8 @@
       </div>
     </form>
   </script>
-
+  
+  <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de categorías!-->
   <script type="text/template" id="adminCategorias"> 
     <div id="menuCategoria">
       <label id="agregarCategoria"  class="btn btn-primary">Agregar Cat</label>     
@@ -235,7 +239,7 @@
     <div id="edit-list"></div>
   </script>
 
-    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+  <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Tabla de categorías!-->
   <script type="text/template" id="adminCategoriasView"> 
     <td><%= cod %></label></td>
     <td><%= name %></label></td>
@@ -244,7 +248,7 @@
   </script>
 
 
-   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS!-->
+   <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de edición de categorías!-->
   <script type="text/template" id="adminCategoriasEdit"> 
     <div class="container">
     <form id="editCategoria" class="form-horizontal container">
@@ -281,14 +285,15 @@
     </div>
   </script>
 
-     <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS!-->
+     <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS - Formulario de productos!-->
   <script type="text/template" id="adminProductos"> 
-    <div id="menuProducto">
+   
+    
+    <form id="addProducto" name="addProducto" class="form-horizontal container">
+     <div id="menuProducto">
       <label id="agregarProducto">Agregar Prod</label>     
       <label id="verProducto">Ver Prod</label>
     </div>
-    
-    <form id="addProducto" name="addProducto" class="form-horizontal container">
       <div>
         <!--CODIGO-->
         <div class="form-group">
@@ -323,19 +328,19 @@
 
         <!--CATEGORIA-->
         <div class="form-group">
-            <label for="categoria-select" class="col-sm-2 control-label">Categoria: </label>
-              <div class="col-sm-10">
-                <select id="categoria" name="categoria" class="form-control" data-shadow="true" data-mini="true">
-          
-                </select>
-          </div>
+          <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
+            <div class="col-sm-10">
+              <select id="categoria" name="categoria" class="form-control">
+                <option>---</option>
+              </select>
+            </div>
         </div>
        <!--MARCA-->
         <div class="form-group">
           <div id="marca-list">
             <label for="marca" class="col-sm-2 control-label">Marca: </label>
               <div class="col-sm-10">
-                <select id="marca" class="form-control"  data-shadow="true" data-mini="true"> </select>
+                <select id="marca" class="form-control"> </select>
               </div> 
           </div>
         </div>
@@ -453,6 +458,11 @@
                 <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
               </div>
             </div>
+            <div class="col-sm-4">
+              <div id="preview6"  >
+                <canvas id="imagen6"  name="imagen6" class="img-thumbnail"></canvas>
+              </div>
+            </div>
           </div> 
         </div>
         <hr>
@@ -467,24 +477,38 @@
         </div>
       </div>
     </form>
-  </script>
+    
+    <div class="col-sm-12">
+      <div id="categoria-lista" class="col-sm-2">
+     
+      </div>
+      <div id="producto-lista" class="col-sm-10">
+     
+      </div>
+      <div id="producto-big">
 
-
-  <script type="text/template" id="productos-tabla">
-    <!-- Template para los productos   -->
-    <div id="tabla-productos">
+      </div>
     </div>
   </script>
+
+
+  <!-- Template para los productos - Miniatura  -->
   <script type="text/template" id="productoVista">
-    <!-- Template para los productos   -->
+    <div id="contenedor-producto" class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="img/<%= imagen1 %>" alt="<%= name %>">
+        <div class="caption">
+          <h3><%= name %></h3>
+          <p><%= descripcion %></p>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <!-- Template para los productos - Grande  -->
+  <script type="text/template" id="productoVistaBig">
     <div id="contenedor-producto">
-      <image src="<%= imagen %>" alt="" >
-      <div id="nombre">
-        <span><%= name %></span>
-      </div>
-      <div id="descripcion">
-        <span><%= descripcion %></span>
-      </div>
+     
     </div>
   </script>
 
@@ -515,8 +539,6 @@
   <script src="js/views/productViews/editProducto.js"></script>
   <script src="js/views/productViews/productoList.js"></script>
   <script src="js/views/mainProduct/bigProducto.js"></script>
-  <script src="js/views/mainProduct/mainListProducto.js"></script>
-  <script src="js/views/mainProduct/mainProducto.js"></script>
   <script src="js/views/login.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/routers/router.js"></script>

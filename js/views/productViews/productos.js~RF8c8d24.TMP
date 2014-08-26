@@ -4,40 +4,31 @@ app.ProductoView = Backbone.View.extend({
 
   template: _.template( $('#adminProductos').html() ),
 
-afterRender: function(e){
-    alert("render complete")
-},
   events: {
+    'click #' : 'checkTamaños',
     'click #agregarProducto' : 'add',
     'submit #addProducto' : 'guardar',
     'click #verProducto' : 'ver',
-    'focus #categoria' : 'chargeCategorias',
-    'change #producto-lista' : 'chargeCategoriasMenu',
-    
   },
   
   initialize: function() {
-    this.on('render', this.chargeCategoriasMenu);
-    this.listenTo(app.Productos, 'reset', this.addAll);
-    this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
     app.Categorias.fetch();
-  },  
-  render: function(y) {
     $(this.el).html(this.template());
-    this.$categoria  = $(this.el).find('#categoria');
     this.checkZapas();
     this.checkTamaño();
     this.checkNiño();
     $('input[type="checkbox"]').checkbox();
     for(x = 1 ; x<6 ; x++){this.imagenes(x);}
+    this.listenTo(app.Productos, 'reset', this.addAll);
+    this.listenTo(app.Productos, 'change', this.addAll);
+  
+    this.chargeCategorias();
     this.addAll();
-    if(y != "admin"){
-      $(this.el).find('#addProducto').hide();
-    }else{
-      $(this.el).find('#producto-lista').hide();
-      $(this.el).find('#addProducto').show();
-    }
+  },  
+  render: function() {
+    
+  // $(this.el).find('#addProducto').hide();
     return this;
   },
   guardar : function (event) {
@@ -56,18 +47,16 @@ afterRender: function(e){
        formData[ 'tamaño' ] += el.id + ',';
       }   
     );
-    var x= 1;
-
+    var x= 0;
+    formData[ 'imagen' ] = '';
     $("canvas").each( 
-      function(i, el) { 
-        formData[ 'imagen'+x ] = '';
-        if(el.width < 300 ){
-          formData[ 'imagen' +x]  = formData[ 'cod' ]+'_'+x+'.jpg' ;     
-        }
+      function(i, el, x) { 
         x++;
+        if(el.width < 300 ){
+          formData[ 'imagen' ] += el.id + ',';     
+        }
       }   
     );
-
     app.Productos.create( formData );
     $(this.el).find('#addProducto').hide();
   },
@@ -143,11 +132,11 @@ afterRender: function(e){
     });
   },
   imagePhp:function () {
+
     var x = 1;
-    for(x=1;x<7;x++){
+    for(x=1;x<6;x++){
       var canvas = document.getElementById("imagen"+x);
       if(canvas.width < 300 ){
-        //tengo que mandar el cod + x
     /*  require(["dojo/request"], function(request){
           request.post("../php/saveImage.php", {
             data: {
@@ -163,13 +152,15 @@ afterRender: function(e){
   },
   chargeCategorias:function(){
     this.$("#categoria").html('');
-    this.$("#categoria").append($("<option>").text('---'));
-     
     app.Categorias.each(
       function (categoria){
-       this.$("#categoria").append($("<option>").attr("value", categoria.get('cod') ).text(categoria.get('name')));
+        this.$("#categoria").append($("<option>").attr("value", 1 ).text("test"));
       }
     );
+    console.log(this.$('form#addProducto').find('#categoria'));
+    console.log(this.$('#categoria'));
+    console.log( this.$el );
+    console.log( this.$el );
   },  
   addOne: function( producto ) {
     var view = new app.ProductoListView({ model: producto });
@@ -177,16 +168,7 @@ afterRender: function(e){
   },
   addAll: function() {
     this.$('#producto-lista').html('');
-    app.Productos.each(this.addOne, this);  
-  },
-  chargeCategoriasMenu:function(){
-    this.$('#categoria-lista').html('');
-    app.Categorias.each(
-      function (categoria){
-        console.log("test2");
-        this.$("#categoria-lista").append("<li><a href='#'>"+categoria.get('name')+"</a></li>");
-      }
-    );
+    app.Productos.each(this.addOne, this);
   },
 
   

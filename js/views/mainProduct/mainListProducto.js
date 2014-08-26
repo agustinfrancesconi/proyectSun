@@ -8,7 +8,6 @@ app.ProductoListView = Backbone.View.extend({
   template: _.template( $('#productoVista').html() ),
 
   events: {
-
     'click .edit': 'edit', 
   },
   
@@ -20,8 +19,8 @@ app.ProductoListView = Backbone.View.extend({
     return this;
   },  
   edit: function( user ) {
-    var view = new app.BigProductView( { model: this.model } );
-    $('#ViewBigProduct').html( view.render().el );
+   /* var view = new app.BigProductView( { model: this.model } );
+    $('#producto-big').html( view.render().el );*/
   },
 
 });

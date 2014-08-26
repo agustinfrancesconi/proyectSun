@@ -21,21 +21,23 @@ var Workspace = Backbone.Router.extend({
     }else{
       
     }
-  },main: function () {
-     if(this.validate()){
-      $('#mainapp').html(new app.MainProducto().render().el);
+  },
+  main: function () {
+    if(this.validate()){
+      $('#mainapp').html('');
+      $('#mainapp').html(new app.ProductoView().render().el);
     }  
-
   },
   mainUsuarios: function() {
     if(this.validate()){
+      $('#mainapp').html('');
       $('#mainapp').html(new app.UserView().render().el);
     }  
   },
   mainProductos: function() {
     if(this.validate()){
       $('#mainapp').html('');
-      $('#mainapp').html(new app.ProductoView().render().el);
+      $('#mainapp').html(new app.ProductoView().render('admin').el);
     }  
   },
   mainCategorias: function() {
