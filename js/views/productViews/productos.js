@@ -4,20 +4,16 @@ app.ProductoView = Backbone.View.extend({
 
   template: _.template( $('#adminProductos').html() ),
 
-afterRender: function(e){
-    alert("render complete")
-},
+
   events: {
     'click #agregarProducto' : 'add',
     'submit #addProducto' : 'guardar',
     'click #verProducto' : 'ver',
     'focus #categoria' : 'chargeCategorias',
-    'change #producto-lista' : 'chargeCategoriasMenu',
-    
+    'focus #cod' : 'fixImagenes',
   },
   
   initialize: function() {
-    this.on('render', this.chargeCategoriasMenu);
     this.listenTo(app.Productos, 'reset', this.addAll);
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
@@ -25,20 +21,26 @@ afterRender: function(e){
   },  
   render: function(y) {
     $(this.el).html(this.template());
-    this.$categoria  = $(this.el).find('#categoria');
     this.checkZapas();
     this.checkTamaño();
     this.checkNiño();
     $('input[type="checkbox"]').checkbox();
-    for(x = 1 ; x<6 ; x++){this.imagenes(x);}
+    for(x = 1 ; x<7 ; x++){this.imagenes(x);}
+    
     this.addAll();
+    this.addAllCat();
+    
     if(y != "admin"){
       $(this.el).find('#addProducto').hide();
     }else{
       $(this.el).find('#producto-lista').hide();
       $(this.el).find('#addProducto').show();
+
     }
     return this;
+  },
+  fixImagenes : function () {
+    for(x = 1 ; x<7 ; x++){this.imagenes(x);}
   },
   guardar : function (event) {
     event.preventDefault();
@@ -73,47 +75,60 @@ afterRender: function(e){
   },
   imagenes : function (x){
     require(["dojo/dom", "dojo/domReady!"], function(dom){
-    var MAX_HEIGHT = 200;
-    var target = dom.byId("preview"+x),
-      preview = dom.byId("preview"+x),
-      canvas = dom.byId("imagen"+x);
+      var MAX_HEIGHT = 200;
+      
+      var target = dom.byId("preview"+x),
+        preview = dom.byId("preview"+x),
+        canvas = dom.byId("imagen"+x),
+        input = dom.byId("file"+x);
 
-    var render = function(src){
-      var img = new Image();
-      img.onload = function(){
-        if(img.height > MAX_HEIGHT) {
-          img.width *= MAX_HEIGHT / img.height;
-          img.height = MAX_HEIGHT;
+
+      var render = function(src){
+        var img = new Image();
+
+        img.onload = function(){
+          if(img.height > MAX_HEIGHT) {
+            img.width *= MAX_HEIGHT / img.height;
+            img.height = MAX_HEIGHT;
+          }
+          var ctx = canvas.getContext("2d");
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          preview.style.width = img.width + "px";
+          preview.style.height = img.height + "px";
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0, img.width, img.height);
+        };
+        img.src = src;
+      };
+    
+      var readImage = function(imgFile){
+        if(!imgFile.type.match(/image.*/)){
+          console.log("The dropped file is not an image: ", imgFile.type);
+          return;
         }
-        var ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        preview.style.width = img.width + "px";
-        preview.style.height = img.height + "px";
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-      };
-      img.src = src;
-    };
 
-    var readImage = function(imgFile){
-      if(!imgFile.type.match(/image.*/)){
-        console.log("The dropped file is not an image: ", imgFile.type);
-        return;
+        var reader = new FileReader();
+        reader.onload = function(e){
+          render(e.target.result);
+        };
+        reader.readAsDataURL(imgFile);
+      };
+      //  DOMReady setup
+      if(target != undefined && input != undefined) {
+        target.addEventListener("dragover", function(e) {e.preventDefault();}, true);
+        target.addEventListener("drop", function(e){
+   
+          e.preventDefault(); 
+          readImage(e.dataTransfer.files[0]);
+        }, true);
+        input.addEventListener("change", function(e){
+   
+          e.preventDefault(); 
+          readImage( this.files[0]);
+        }, true);
+
       }
-
-      var reader = new FileReader();
-      reader.onload = function(e){
-        render(e.target.result);
-      };
-      reader.readAsDataURL(imgFile);
-    };
-    //  DOMReady setup
-    target.addEventListener("dragover", function(e) {e.preventDefault();}, true);
-    target.addEventListener("drop", function(e){
-      e.preventDefault(); 
-      readImage(e.dataTransfer.files[0]);
-    }, true);
     });
   },
   checkZapas:function (){
@@ -178,16 +193,14 @@ afterRender: function(e){
   addAll: function() {
     this.$('#producto-lista').html('');
     app.Productos.each(this.addOne, this);  
-  },
-  chargeCategoriasMenu:function(){
     this.$('#categoria-lista').html('');
-    app.Categorias.each(
-      function (categoria){
-        console.log("test2");
-        this.$("#categoria-lista").append("<li><a href='#'>"+categoria.get('name')+"</a></li>");
-      }
-    );
   },
-
-  
+    addOneCat: function( categoria ) {
+    var view = new app.CategoriaMenuView({ model: categoria });
+    this.$('#categoria-lista').append( view.render().el );
+  },
+  addAllCat: function() {
+    this.$('#categoria-lista').html('');
+    app.Categorias.each(this.addOneCat, this);  
+  },
 });

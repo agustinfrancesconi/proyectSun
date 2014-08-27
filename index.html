@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title >Sun</title>
-   <link href="css/normalize.css" rel="css/stylesheet" type="text/css" media="all">
+  <link href="css/normalize.css" rel="css/stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-theme.css">
@@ -12,32 +12,26 @@
 </head>
 
 <body>
-  <div id="top" class="container-fluid">
-    <div id="adminMenu" class="nav">
-      <label id="logo" class="brand">Sun</label>
-      <label id="usuarios">Usuarios</label>     
-      <label id="categorias">Categorías</label>
-      <label id="productos">Productos</label>
+ 
+  <nav id="top" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#">SUN</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a id="usuarios">Usuarios</a></li>
+          <li><a id="categorias">Categorías</a> </li>
+          <li><a id="productos">Productos</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <!-- <div id="aside" class="col-sm-1 col-md-1 sidebar">
-    <ul id="catmenu" class="nav nav-sidebar">
-      <li><a>1</a></li>
-      <li><a>2</a></li>
-      <li><a>3</a></li>
-      <li><a>4</a></li>
-      <li><a>5</a></li>
-    </ul>
-  </div>!-->
+  </nav>
 
-  <section id="sunapp">
-    <div id="menuAdmin">
-      
-    </div>
-  </seccion>
-
+ 
   <section id="mainapp">
-  
   </seccion>
 
   <!-- TEMPLATE LOGIN!-->
@@ -247,7 +241,6 @@
     <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
 
-
    <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de edición de categorías!-->
   <script type="text/template" id="adminCategoriasEdit"> 
     <div class="container">
@@ -286,15 +279,9 @@
   </script>
 
      <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS - Formulario de productos!-->
-  <script type="text/template" id="adminProductos"> 
-   
-    
+  <script type="text/template" id="adminProductos">    
     <form id="addProducto" name="addProducto" class="form-horizontal container">
-     <div id="menuProducto">
-      <label id="agregarProducto">Agregar Prod</label>     
-      <label id="verProducto">Ver Prod</label>
-    </div>
-      <div>
+     <div>
         <!--CODIGO-->
         <div class="form-group">
           <label for="cod" class="col-sm-2 control-label">Codigo: </label>
@@ -340,7 +327,7 @@
           <div id="marca-list">
             <label for="marca" class="col-sm-2 control-label">Marca: </label>
               <div class="col-sm-10">
-                <select id="marca" class="form-control"> </select>
+                <input id="marca" class="form-control"> </input>
               </div> 
           </div>
         </div>
@@ -435,32 +422,52 @@
           <div class="col-sm-10">
             <div class="col-sm-4" >
               <div id="preview1"  >
+                  <span class="file-input btn btn-primary btn-file">
+                  + <input id="file1" type="file" multiple>
+                </span>
                 <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview2"  >
+                <span class="file-input btn btn-primary btn-file">
+                  + <input id="file2" type="file" multiple>
+                </span>
                 <canvas id="imagen2"  name="imagen2" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview3"  >
+                <span class="file-input btn btn-primary btn-file">
+                  + <input id="file3" type="file" multiple>
+                </span>
                 <canvas id="imagen3" name="imagen3" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview4"  >
+                <span class="file-input btn btn-primary btn-file">
+                  + <input id="file4" type="file" multiple>
+                </span>
                 <canvas id="imagen4"  name="imagen4" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview5"  >
+                <span class="file-input btn btn-primary btn-file">
+                  + <input id="file5" type="file" multiple>
+                </span>
                 <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
               </div>
             </div>
             <div class="col-sm-4">
               <div id="preview6"  >
-                <canvas id="imagen6"  name="imagen6" class="img-thumbnail"></canvas>
+                <span class="file-input btn btn-primary btn-file">
+                  + <input id="file6" type="file" multiple>
+                </span>
+                <canvas id="imagen6"  name="imagen6" class="img-thumbnail">  <span class="file-input btn btn-primary btn-file">
+                  + <input id="file6" type="file" multiple>
+                </span></canvas>
               </div>
             </div>
           </div> 
@@ -478,25 +485,35 @@
       </div>
     </form>
     
-    <div class="col-sm-12">
-      <div id="categoria-lista" class="col-sm-2">
-     
+    <div class="col-sm-12" id="fondo2">
+      <div  class="col-sm-2 sidebar">
+        <div id="wrapper">
+          <div id="sidebar-wrapper">
+            <ul id="categoria-lista"class="sidebar-nav">
+            </ul>
+          </div>
+        </div>
       </div>
-      <div id="producto-lista" class="col-sm-10">
-     
-      </div>
-      <div id="producto-big">
-
+      <div class="col-sm-10" id="fondo">
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="producto-lista" > </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="producto-big"></div>
       </div>
     </div>
   </script>
-
 
   <!-- Template para los productos - Miniatura  -->
   <script type="text/template" id="productoVista">
     <div id="contenedor-producto" class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="img/<%= imagen1 %>" alt="<%= name %>">
+        <img src="img/<%= imagen1 %>" alt="<%= name %>" >
         <div class="caption">
           <h3><%= name %></h3>
           <p><%= descripcion %></p>
@@ -505,7 +522,11 @@
     </div>
   </script>
 
+  <script type="text/template" id="categoriaMenu">
+    <a id="<%= cod %>"><%= name%></a>
+  </script>
   <!-- Template para los productos - Grande  -->
+  
   <script type="text/template" id="productoVistaBig">
     <div id="contenedor-producto">
      
@@ -535,6 +556,7 @@
   <script src="js/views/categoriaViews/categorias.js"></script>
   <script src="js/views/categoriaViews/editCategoria.js"></script>
   <script src="js/views/categoriaViews/categoriaList.js"></script>
+  <script src="js/views/categoriaViews/categoriaMenu.js"></script>
   <script src="js/views/productViews/productos.js"></script>
   <script src="js/views/productViews/editProducto.js"></script>
   <script src="js/views/productViews/productoList.js"></script>

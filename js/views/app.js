@@ -22,7 +22,7 @@ app.AppView = Backbone.View.extend({
 
   },
   home: function() {
-       app.SunRouter.navigate("");
+    app.SunRouter.navigate("#/");
   },
   adminUser: function() {
     app.SunRouter.navigate("#/usuarios");
