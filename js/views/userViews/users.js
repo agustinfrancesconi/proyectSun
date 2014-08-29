@@ -24,8 +24,9 @@ app.UserView = Backbone.View.extend({
     this.$mail  = this.$('#new-user-mail');
     this.$tel   = this.$('#new-user-tel');
     this.$pass  = this.$('#new-user-pass');
-    $(this.el).find('#addUser').hide();
+    //$(this.el).find('#addUser').hide();
     $(this.el).find('#user-list').hide();
+    $(this.el).find('#addUser').addClass('magictime spaceInLeft');
     return this;
   },
   newAttributes: function() {
@@ -48,14 +49,17 @@ app.UserView = Backbone.View.extend({
     this.$tel.val('');
     $(this.el).find('#addUser').hide();
   },
+
   add: function () {
     $(this.el).find('#user-list').hide();
     $(this.el).find('#addUser').show();
+    $(this.el).find('#addUser').addClass('magictime spaceInLeft');
   },
   ver: function () {
     this.addAll();
     $(this.el).find('#addUser').hide();
     $(this.el).find('#user-lista').show();
+    $(this.el).find('#user-lista').addClass('magictime spaceInLeft');
     //cargo el formulario de vista + edicion para modificar el usuario
   },
   addOne: function( user ) {
@@ -71,3 +75,4 @@ app.UserView = Backbone.View.extend({
      this.ver();
   }
 });
+

@@ -22,8 +22,9 @@ app.CategoriaView = Backbone.View.extend({
     this.$name  = this.$('#new-categoria-name');
     this.$cod  = this.$('#new-categoria-cod');
     this.$descripcion  = this.$('#new-categoria-descripcion');
-    $(this.el).find('#addCategoria').hide();
+    //$(this.el).find('#addCategoria').hide();
     $(this.el).find('#categoria-list').hide();
+    $(this.el).find('#addCategoria').addClass('magictime spaceInLeft');
     return this;
   },
   newAttributes: function() {
@@ -45,12 +46,13 @@ app.CategoriaView = Backbone.View.extend({
   add: function () {
     $(this.el).find('#categoria-list').hide();
     $(this.el).find('#addCategoria').show();
+    $(this.el).find('#addCategoria').addClass('magictime spaceInLeft');
   },
   ver: function () {
     this.addAll();
     $(this.el).find('#addCategoria').hide();
-    $(this.el).find('#categoria-list').show();
-    //cargo el formulario de vista + edicion para modificar el usuario
+    $(this.el).find('#categoria-lista').show();
+    $(this.el).find('#categoria-lista').addClass('magictime spaceInLeft');
   },
   addOne: function( categoria ) {
     var view = new app.CategoriaListView({ model: categoria });
@@ -59,8 +61,9 @@ app.CategoriaView = Backbone.View.extend({
   addAll: function() {
     this.$('#categoria-lista').html('');
     app.Categorias.each(this.addOne, this);
+    this.$('#categoria-list').show();
   },
-    close: function() {
-     this.ver();
+  close: function() {
+    this.ver();
   }
 });

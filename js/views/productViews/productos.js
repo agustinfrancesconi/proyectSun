@@ -35,7 +35,7 @@ app.ProductoView = Backbone.View.extend({
     }else{
       $(this.el).find('#producto-lista').hide();
       $(this.el).find('#addProducto').show();
-
+      $(this.el).find('#addProducto').addClass('magictime spaceInLeft');
     }
     return this;
   },
@@ -195,7 +195,7 @@ app.ProductoView = Backbone.View.extend({
     app.Productos.each(this.addOne, this);  
     this.$('#categoria-lista').html('');
   },
-    addOneCat: function( categoria ) {
+  addOneCat: function( categoria ) {
     var view = new app.CategoriaMenuView({ model: categoria });
     this.$('#categoria-lista').append( view.render().el );
   },

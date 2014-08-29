@@ -18,12 +18,13 @@ app.UserListView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html( this.template( this.model.attributes ) );
+     this.$el.addClass('magictime spaceInLeft');
     return this;
   },  
   
   clear: function() {
     var x = this.model; 
-    bootbox.confirm("Seguro de borrar a " + this.model.attributes.name, function(result) {
+    bootbox.confirm("Seguro de borrar a " + this.model.attributes.name + "?", function(result) {
     if(result){
       x.destroy();
     }

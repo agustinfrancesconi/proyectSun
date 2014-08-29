@@ -9,12 +9,14 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-theme.css">
   <link rel="stylesheet" href="css/bootstrap-checkbox.css">
+  <link rel="stylesheet" href="css/magic.css">
+  <link rel="shortcut icon" href="img/sun.ico">
 </head>
 
 <body>
  
   <nav id="top" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
           <a class="navbar-brand" href="#">SUN</a>
@@ -27,11 +29,11 @@
           <li><a id="productos">Productos</a></li>
         </ul>
       </div>
-    </div>
+ 
   </nav>
 
- 
   <section id="mainapp">
+ 
   </seccion>
 
   <!-- TEMPLATE LOGIN!-->
@@ -61,74 +63,92 @@
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Vista principal!-->
   <script type="text/template" id="adminUsuarios"> 
-    <div id="menuUser" class="8col-md-8">
-      <button id="agregarUser" class="btn btn-primary">Agregar</button>     
-      <button id="verUser" class="btn btn-primary">Ver</button>
-    </div>
-    
-    <form id="addUser" name="addUser" class="form-horizontal container">
-
-      <div class="form-group">
-        <label for="new-user-user" class="col-sm-2 control-label">Usuario: </label>
-        <div class="col-sm-10">
-          <input id="new-user-user" name="new-user-user" type="text"  class="form-control" autofocus required>
+    <div class="col-sm-12" id="fondo2">
+      <div  class="col-sm-2 sidebar">
+        <div id="wrapper">
+          <div id="sidebar-wrapper">
+            <ul id="menuUser"class="sidebar-nav">
+              <li ><a id="agregarUser">Agregar Usuario</a></li>     
+              <li ><a id="verUser" >Ver Todas</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="new-user-pass" class="col-sm-2 control-label">Password: </label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="new-user-pass" required>
-        </div>
-      </div>
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <form id="addUser" name="addUser" class="form-horizontal container">
+              <div class="form-group ">
+                <div class="col-sm-offset-2 col-sm-6"> 
+                  <h2>  Nuevo usuario: </h2>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="new-user-user" class="col-sm-2 control-label">Usuario: </label>
+                <div class="col-sm-10">
+                  <input id="new-user-user" name="new-user-user" type="text"  class="form-control" autofocus required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="new-user-pass" class="col-sm-2 control-label">Password: </label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="new-user-pass" required>
+                </div>
+              </div>
 
-      <div class="form-group">
-        <label for="new-user-name" class="col-sm-2 control-label">Nombre: </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="new-user-name" required>
-        </div>
-      </div>
-        
-      <div class="form-group">
-        <label for="new-user-mail" class="col-sm-2 control-label">Mail: </label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="new-user-mail" required>
-        </div>
-      </div>
+              <div class="form-group">
+                <label for="new-user-name" class="col-sm-2 control-label">Nombre: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="new-user-name" required>
+                </div>
+              </div>
+                
+              <div class="form-group">
+                <label for="new-user-mail" class="col-sm-2 control-label">Mail: </label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="new-user-mail" required>
+                </div>
+              </div>
 
-      <div class="form-group">
-        <label for="new-user-tel" class="col-sm-2 control-label">Telefono: </label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="new-user-tel" required>
+              <div class="form-group">
+                <label for="new-user-tel" class="col-sm-2 control-label">Telefono: </label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="new-user-tel" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                      <button id="new-user" type="submit" class="btn btn-primary   btn-lg ">  GUARDAR</button>
+                        <div id="new-close" class="btn btn-primary btn-lg"> CERRAR </div>
+                </div>
+              </div> 
+            </form>
+
+            <div id="user-list" class="container">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Telefono</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="user-lista">
+                 
+                  </tbody>
+              </table> 
+            </div>
+
+            <div id="edit-list" class="modal">
+
+       </div>
+          </div>
         </div>
-      </div>
-      
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button id="new-user" type="submit" class="btn btn-default"> GUARDAR </button>
-          <div id="new-close" class="btn btn-default"> CERRAR </div>
-        </div>
-      </div> 
-    </form>
-
-    <div id="user-list" class="container">
-
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Telefono</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody id="user-lista">
-       
-        </tbody>
-    </table> 
-    </div>
-    <div id="edit-list"></div>
+      </div>  
   </script>
   
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Tabla de usuarios!-->
@@ -137,100 +157,134 @@
     <td><%= name %></label></td>
     <td><%= mail %></label></td>
     <td><%= tel %></label></td>
-    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
+    <td> 
+      <a data-toggle="modal" href="#edit-list">
+      <button class="edit btn btn-primary btn" value=""><span class="glyphicon glyphicon-pencil"></span></button>
+      </a>
+      <button class="destroy btn btn-primary btn">  <span class="glyphicon glyphicon-trash"></span></button> 
+    </td>
   </script>
   
   <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Formulario de edición de usuarios!-->
   <script type="text/template" id="adminUsuariosEdit"> 
-    <form id="editUser" class="form-horizontal container">
-      <div class="form-group">
-        <label for="edit-user-user" class="col-sm-2 control-label">Usuario: </label>
-        <div class="col-sm-10">
-          <input id="edit-user-user" type="text"  class="form-control" autofocus required value="<%= user %>">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="edit-user-pass" class="col-sm-2 control-label">Password: </label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="edit-user-pass" required value="<%= pass %>">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="edit-user-name" class="col-sm-2 control-label">Nombre: </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="edit-user-name" value="<%= name %>" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="edit-user-mail" class="col-sm-2 control-label">Mail: </label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="edit-user-mail" required value="<%= mail %>">
-        </div>
-      </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+       
+        <form id="editUser" class="form-horizontal container">
+          <div class="form-group ">
+            <div class="col-sm-offset-1 col-sm-3"> 
+              <h3>  Modificando usuario: </h3>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-user-user" class="col-sm-2 control-label">Usuario: </label>
+            <div class="col-sm-3">
+              <input id="edit-user-user" type="text"  class="form-control" autofocus required value="<%= user %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-user-pass" class="col-sm-2 control-label">Password: </label>
+            <div class="col-sm-3">
+              <input type="password" class="form-control" id="edit-user-pass" required value="<%= pass %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-user-name" class="col-sm-2 control-label">Nombre: </label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="edit-user-name" value="<%= name %>" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-user-mail" class="col-sm-2 control-label">Mail: </label>
+            <div class="col-sm-3">
+              <input type="email" class="form-control" id="edit-user-mail" required value="<%= mail %>">
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label for="edit-user-tel" class="col-sm-2 control-label">Telefono: </label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="edit-user-tel" required value="<%= tel %>">
-        </div>
+          <div class="form-group">
+            <label for="edit-user-tel" class="col-sm-2 control-label">Telefono: </label>
+            <div class="col-sm-3">
+              <input type="number" class="form-control" id="edit-user-tel" required value="<%= tel %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+              <button id="edit-user" type="submit"  data-dismiss="modal" class="btn btn-primary   btn-lg ">GUARDAR</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button id="edit-user" type="submit" class="btn btn-default"> MODIFICAR</button>
-          <div id="edit-close" class="btn btn-default"> CERRAR </div>
-        </div>
-      </div>
-    </form>
+    </div>
   </script>
   
   <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de categorías!-->
   <script type="text/template" id="adminCategorias"> 
-    <div id="menuCategoria">
-      <label id="agregarCategoria"  class="btn btn-primary">Agregar Cat</label>     
-      <label id="verCategoria"  class="btn btn-primary">Ver Cat</label>
-    </div>
-    <form id="addCategoria" name="addCategoria" class="form-horizontal container">
-      <div class="form-group">
-        <label for="new-categoria-cod" class="col-sm-2 control-label">Código: </label>
-        <div class="col-sm-10">
-          <input id="new-categoria-cod" type="text"  class="form-control" autofocus required>
+    <div class="col-sm-12" id="fondo2">
+      <div  class="col-sm-2 sidebar">
+        <div id="wrapper">
+          <div id="sidebar-wrapper">
+            <ul id="menuCategoria" class="sidebar-nav">
+              <li ><a id="agregarCategoria">Agregar Categoria</a></li>     
+              <li ><a id="verCategoria" >Ver Todas</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-       <div class="form-group">
-        <label for="new-categoria-name" class="col-sm-2 control-label">Nombre: </label>
-        <div class="col-sm-10">
-          <input id="new-categoria-name" type="text"  class="form-control" required>
-        </div>
-      </div>
-        <div class="form-group">
-        <label for="new-categoria-descripcion" class="col-sm-2 control-label">Descripción: </label>
-        <div class="col-sm-10">
-          <input id="new-categoria-descripcion" type="text"  class="form-control" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-         <button id="new-categoria" type="submit" class="btn btn-default">NEW</button>
-          <div id="new-close" class="btn btn-default"> CERRAR </div>
-        </div>
-      </div>
-    </form>
-    <div id="categoria-list">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-          </tr>
-        </thead>
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <form id="addCategoria" name="addCategoria" class="form-horizontal container">
+              <div class="form-group ">
+                <div class="col-sm-offset-4 col-sm-5"> 
+                  <h2>  Nueva categoría: </h2>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="new-categoria-cod" class="col-sm-4 control-label">Código: </label>
+                <div class="col-sm-6">
+                  <input id="new-categoria-cod" type="text"  class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="new-categoria-name" class="col-sm-4 control-label">Nombre: </label>
+                <div class="col-sm-6">
+                  <input id="new-categoria-name" type="text"  class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="new-categoria-descripcion" class="col-sm-4 control-label">Descripción: </label>
+                <div class="col-sm-6">
+                  <input id="new-categoria-descripcion" type="text"  class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                 <button id="new-categoria" type="submit" class="btn btn-primary   btn-lg "> GUARDAR</button>
+                  <div id="new-close" class="btn btn-primary btn-lg">CERRAR</div>
+                </div>
+              </div>
+            </form>
+            
+            <div id="categoria-list" class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody id="categoria-lista">
+                </tbody>
+              </table> 
+            </div>
 
-        <tbody id="categoria-lista">
-       
-        </tbody>
-      </table> 
+            <div id="edit-list"  class="modal"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="edit-list"></div>
   </script>
 
   <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Tabla de categorías!-->
@@ -238,255 +292,55 @@
     <td><%= cod %></label></td>
     <td><%= name %></label></td>
     <td><%= descripcion %></label></td>
-    <td> <button class="edit" value=""><span class="glyphicon glyphicon-pencil"></span></button><button class="destroy"><span class="glyphicon glyphicon-trash"></span></button> </td>
+    <td> <a data-toggle="modal" href="#edit-list">
+    <button class="edit btn btn-primary btn" value=""><span class="glyphicon glyphicon-pencil"></span></button>
+    </a>
+    <button class="destroy btn btn-primary btn"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
 
    <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de edición de categorías!-->
   <script type="text/template" id="adminCategoriasEdit"> 
-    <div class="container">
-    <form id="editCategoria" class="form-horizontal container">
-      
-      //CODIGO
-      <div class="form-group">
-        <label for="edit-categoria-cod" class="col-sm-2 control-label">Código: </label>
-        <div class="col-sm-10">
-          <input id="edit-categoria-cod" type="text"  class="form-control" autofocus required value="<%= cod %>">
-        </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+        <form id="editCategoria" class="form-horizontal container">
+          <div class="form-group ">
+            <div class="col-sm-offset-1 col-sm-3"> 
+              <h3>  Modificando categoría: </h3>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-categoria-cod" class="col-sm-2 control-label">Código: </label>
+            <div class="col-sm-3">
+              <input id="edit-categoria-cod" type="text"  class="form-control" autofocus required value="<%= cod %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-categoria-name" class="col-sm-2 control-label">Nombre: </label>
+            <div class="col-sm-3">
+              <input id="edit-categoria-name" type="text"  class="form-control" autofocus required value="<%= name %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-categoria-descripcion" class="col-sm-2 control-label">Descripción: </label>
+            <div class="col-sm-3">
+              <input id="edit-categoria-descripcion" type="text"  class="form-control" autofocus required value="<%= descripcion %>">
+            </div>
+          </div> 
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+              <button id="edit-categoria" type="submit"  data-dismiss="modal" class="btn btn-primary   btn-lg ">GUARDAR</button>
+            </div>
+          </div> 
+        </form> 
       </div>
-      //NOMBRE
-      <div class="form-group">
-        <label for="edit-categoria-name" class="col-sm-2 control-label">Nombre: </label>
-        <div class="col-sm-10">
-          <input id="edit-categoria-name" type="text"  class="form-control" autofocus required value="<%= name %>">
-        </div>
-      </div>
-      //DESCRIPCION
-      <div class="form-group">
-        <label for="edit-categoria-descripcion" class="col-sm-2 control-label">Descripción: </label>
-        <div class="col-sm-10">
-          <input id="edit-categoria-descripcion" type="text"  class="form-control" autofocus required value="<%= descripcion %>">
-        </div>
-      </div> 
-
-      <div class="form-group">
-        <div class="col-sm-10">
-            <button id="edit-categoria" type="submit" class="btn btn-default"> MODIFICAR</button>
-           <div id="edit-close" class="btn btn-default"> CERRAR </div>
-        </div>
-      </div>    
-    </form> 
     </div>
   </script>
 
      <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS - Formulario de productos!-->
   <script type="text/template" id="adminProductos">    
-    <form id="addProducto" name="addProducto" class="form-horizontal container">
-     <div>
-        <!--CODIGO-->
-        <div class="form-group">
-          <label for="cod" class="col-sm-2 control-label">Codigo: </label>
-          <div class="col-sm-10">
-            <input id="cod"  name="cod" type="text"  class="form-control" autofocus required>
-          </div>
-        </div>
-        <!--NOMBRE-->
-        <div class="form-group">
-          <label for="name" class="col-sm-2 control-label">Nombre: </label>
-          <div class="col-sm-10">
-            <input id="name" name="name" type="text"  class="form-control" autofocus required>
-          </div>
-        </div>
-        <!--DESCRIPCION-->
-        <div class="form-group">
-          <label for="descripcion" class="col-sm-2 control-label">Descripcion: </label>
-          <div class="col-sm-10">
-            <input id="descripcion" name="descripcion" type="text"  class="form-control" autofocus >
-          </div>
-        </div>
-        <!--DESCRIPCION2-->
-        <div class="form-group">
-          <label for="descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
-          <div class="col-sm-10">
-            <input id="descripcion2" name="descripcion2" type="text"  class="form-control" autofocus >
-          </div>
-        </div>
-
-        <hr> 
-
-        <!--CATEGORIA-->
-        <div class="form-group">
-          <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
-            <div class="col-sm-10">
-              <select id="categoria" name="categoria" class="form-control">
-                <option>---</option>
-              </select>
-            </div>
-        </div>
-       <!--MARCA-->
-        <div class="form-group">
-          <div id="marca-list">
-            <label for="marca" class="col-sm-2 control-label">Marca: </label>
-              <div class="col-sm-10">
-                <input id="marca" class="form-control"> </input>
-              </div> 
-          </div>
-        </div>
-  
-        <hr>
-
-        <!--TALLE ZAPATILLA-->
-        <div class="form-group">
-          <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
-          <div class="col-sm-10">
-          <fieldset>
-          <div class="col1-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>35</span><input type="checkbox" id="35" name="talle35" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>36</span><input type="checkbox" id="36" name="talle36"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>37</span><input type="checkbox" id="37" name="talle37" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>38</span><input type="checkbox" id="38" name="talle38" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>39</span><input type="checkbox" id="39" name="talle39" class="checkbox" /></div> 
-            <div class="col1-sm-1"><span>40</span><input type="checkbox" id="40" name="talle40" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>41</span><input type="checkbox" id="41" name="talle41"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>42</span><input type="checkbox" id="42" name="talle42"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>43</span><input type="checkbox" id="43" name="talle43"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>44</span><input type="checkbox" id="44" name="talle44" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>45</span><input type="checkbox" id="45" name="talle45" class="checkbox" /></div>
-            </fieldset>
-          </div>
-        </div>
-       <!--TALLE ZAPATILLA NIÑO-->
-        <div class="form-group">
-          <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas niño: </label>
-          <div class="col-sm-10">
-            <fieldset>
-            <div class="col1-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>2</span><input type="checkbox" id="2" name="talle2" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>3</span><input type="checkbox" id="3" name="talle3" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>4</span><input type="checkbox" id="4" name="talle4" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>5</span><input type="checkbox" id="5" name="talle5" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>6</span><input type="checkbox" id="6" name="talle6" class="checkbox" /></div> 
-            <div class="col1-sm-1"><span>7</span><input type="checkbox" id="7" name="talle7" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>8</span><input type="checkbox" id="8" name="talle8"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>9</span><input type="checkbox" id="9" name="talle9" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>10</span><input type="checkbox" id="10" name="talle10" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>11</span><input type="checkbox" id="11" name="talle11" class="checkbox" /></div>
-             <div class="col1-sm-1"><span>12</span><input type="checkbox" id="12" name="talle12"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>13</span><input type="checkbox" id="13" name="talle13"class="checkbox" /></div>   
-             <div class="col1-sm-1"><span>14</span><input type="checkbox" id="14" name="talle14"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>15</span><input type="checkbox" id="15" name="talle15"class="checkbox" /></div>  
-            <div class="col1-sm-1"><span>16</span><input type="checkbox" id="16" name="talle16"class="checkbox" /></div> 
-            </fieldset>
-          </div>
-        </div>
-        <!--TALLE -->
-        <div class="form-group">
-          <label for="new-producto-tamaño" class="col-sm-2 control-label">Tamaño: </label>
-          <div class="col-sm-10">
-          <fieldset>
-            <div class="col1-sm-1">
-              <span>All</span><input type="checkbox" id="tamaño-all" class="checkbox" />
-            </div>
-            <div class="col1-sm-1">
-              <span>XXS</span><input type="checkbox" id="talleXXS" name="talleXXS" class="checkbox" />
-            </div>
-            <div class="col1-sm-1"><span>XS</span><input type="checkbox" id="talleXS" name="talleXS"class="checkbox" /></div>
-            <div class="col1-sm-1"><span>S</span><input type="checkbox" id="talleS" name="talleS" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>M</span><input type="checkbox" id="talleM" name="talleM" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>L</span><input type="checkbox" id="talleL" name="talleL" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>XL</span><input type="checkbox" id="talleXL" name="talleXL" class="checkbox" /></div>
-            <div class="col1-sm-1"><span>XXL</span><input type="checkbox" id="talleXXL" name="talleXXL" class="checkbox" /></div>
-            </fieldset>
-          </div>
-        </div>
-        <!--MEDIDAS-->
-        <div class="form-group">
-          <label for="medidas" class="col-sm-2 control-label">Medidas: </label>
-          <div class="col-sm-10">
-            <input type="text" id="medidas" name="medidas" class="form-control"></input>
-          </div> 
-        </div>
-        
-        <hr>
-
-        <!--COLOR-->
-        <div class="form-group">
-          <label for="color" class="col-sm-2 control-label">Color: </label>
-          <div class="col-sm-10">
-            <input type="text" id="color"  class="form-control"> </input>
-          </div> 
-        </div>
-
-        <!--IMAGENES-->
-        <div class="form-group">
-          <label for="new-producto-color" class="col-sm-2 control-label">Imagenes: </label>
-          <div class="col-sm-10">
-            <div class="col-sm-4" >
-              <div id="preview1"  >
-                  <span class="file-input btn btn-primary btn-file">
-                  + <input id="file1" type="file" multiple>
-                </span>
-                <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div id="preview2"  >
-                <span class="file-input btn btn-primary btn-file">
-                  + <input id="file2" type="file" multiple>
-                </span>
-                <canvas id="imagen2"  name="imagen2" class="img-thumbnail"></canvas>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div id="preview3"  >
-                <span class="file-input btn btn-primary btn-file">
-                  + <input id="file3" type="file" multiple>
-                </span>
-                <canvas id="imagen3" name="imagen3" class="img-thumbnail"></canvas>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div id="preview4"  >
-                <span class="file-input btn btn-primary btn-file">
-                  + <input id="file4" type="file" multiple>
-                </span>
-                <canvas id="imagen4"  name="imagen4" class="img-thumbnail"></canvas>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div id="preview5"  >
-                <span class="file-input btn btn-primary btn-file">
-                  + <input id="file5" type="file" multiple>
-                </span>
-                <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div id="preview6"  >
-                <span class="file-input btn btn-primary btn-file">
-                  + <input id="file6" type="file" multiple>
-                </span>
-                <canvas id="imagen6"  name="imagen6" class="img-thumbnail">  <span class="file-input btn btn-primary btn-file">
-                  + <input id="file6" type="file" multiple>
-                </span></canvas>
-              </div>
-            </div>
-          </div> 
-        </div>
-        <hr>
-        
-        <div class="form-group">
-          <div class="col-sm-5">
-          </div>
-          <div class="col-sm-7">
-            <button id="new-producto" type="submit" class="btn btn-default"> GUARDAR</button>
-            <div id="close-producto" class="btn btn-default"> CERRAR </div>
-          </div>
-        </div>
-      </div>
-    </form>
-    
     <div class="col-sm-12" id="fondo2">
-      <div  class="col-sm-2 sidebar">
+      <div  class="col-sm-1 sidebar">
         <div id="wrapper">
           <div id="sidebar-wrapper">
             <ul id="categoria-lista"class="sidebar-nav">
@@ -494,31 +348,242 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-10" id="fondo">
+      <div class="col-sm-11" id="fondo">
         <div id="page-content-wrapper">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-12">
                 <div id="producto-lista" > </div>
+                  <form id="addProducto" name="addProducto" class="form-horizontal container">
+                    <div class="form-group ">
+                      <div class="col-sm-offset-2 col-sm-5"> 
+                        <h2>  Nuevo producto: </h2>
+                      </div>
+                    </div>
+                    <!--CODIGO-->
+                    <div class="form-group">
+                      <label for="cod" class="col-sm-2 control-label">Codigo: </label>
+                      <div class="col-sm-8">
+                        <input id="cod"  name="cod" type="text"  class="form-control" autofocus required>
+                      </div>
+                    </div>
+                    <!--NOMBRE-->
+                    <div class="form-group">
+                      <label for="name" class="col-sm-2 control-label">Nombre: </label>
+                      <div class="col-sm-8">
+                        <input id="name" name="name" type="text"  class="form-control" autofocus required>
+                      </div>
+                    </div>
+                    <!--DESCRIPCION-->
+                    <div class="form-group">
+                      <label for="descripcion" class="col-sm-2 control-label">Descripcion: </label>
+                      <div class="col-sm-8">
+                        <input id="descripcion" name="descripcion" type="text"  class="form-control" autofocus >
+                      </div>
+                    </div>
+                    <!--DESCRIPCION2-->
+                    <div class="form-group">
+                      <label for="descripcion2" class="col-sm-2 control-label">Descripcion2: </label>
+                      <div class="col-sm-8">
+                        <input id="descripcion2" name="descripcion2" type="text"  class="form-control" autofocus >
+                      </div>
+                    </div>
+
+                    <hr> 
+
+                    <!--CATEGORIA-->
+                    <div class="form-group">
+                      <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
+                        <div class="col-sm-8">
+                          <select id="categoria" name="categoria" class="form-control">
+                            <option>---</option>
+                          </select>
+                        </div>
+                    </div>
+                   <!--MARCA-->
+                    <div class="form-group">
+                      <div id="marca-list">
+                        <label for="marca" class="col-sm-2 control-label">Marca: </label>
+                          <div class="col-sm-8">
+                            <input id="marca" class="form-control"> </input>
+                          </div> 
+                      </div>
+                    </div>
+              
+                    <hr>
+
+                    <!--TALLE ZAPATILLA-->
+                    <div class="form-group">
+                      <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas: </label>
+                      <div class="col-sm-8">
+                      <fieldset>
+                      <div class="col1-sm-1"><span>All</span><input type="checkbox" id="zapas-all" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>35</span><input type="checkbox" id="35" name="talle35" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>36</span><input type="checkbox" id="36" name="talle36"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>37</span><input type="checkbox" id="37" name="talle37" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>38</span><input type="checkbox" id="38" name="talle38" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>39</span><input type="checkbox" id="39" name="talle39" class="checkbox" /></div> 
+                        <div class="col1-sm-1"><span>40</span><input type="checkbox" id="40" name="talle40" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>41</span><input type="checkbox" id="41" name="talle41"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>42</span><input type="checkbox" id="42" name="talle42"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>43</span><input type="checkbox" id="43" name="talle43"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>44</span><input type="checkbox" id="44" name="talle44" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>45</span><input type="checkbox" id="45" name="talle45" class="checkbox" /></div>
+                        </fieldset>
+                      </div>
+                    </div>
+                   <!--TALLE ZAPATILLA NIÑO-->
+                    <div class="form-group">
+                      <label for="new-producto-talle" class="col-sm-2 control-label">Zapatillas niño: </label>
+                      <div class="col-sm-8">
+                        <fieldset>
+                        <div class="col1-sm-1"><span>All</span><input type="checkbox" id="niño-all" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>2</span><input type="checkbox" id="2" name="talle2" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>3</span><input type="checkbox" id="3" name="talle3" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>4</span><input type="checkbox" id="4" name="talle4" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>5</span><input type="checkbox" id="5" name="talle5" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>6</span><input type="checkbox" id="6" name="talle6" class="checkbox" /></div> 
+                        <div class="col1-sm-1"><span>7</span><input type="checkbox" id="7" name="talle7" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>8</span><input type="checkbox" id="8" name="talle8"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>9</span><input type="checkbox" id="9" name="talle9" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>10</span><input type="checkbox" id="10" name="talle10" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>11</span><input type="checkbox" id="11" name="talle11" class="checkbox" /></div>
+                         <div class="col1-sm-1"><span>12</span><input type="checkbox" id="12" name="talle12"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>13</span><input type="checkbox" id="13" name="talle13"class="checkbox" /></div>   
+                         <div class="col1-sm-1"><span>14</span><input type="checkbox" id="14" name="talle14"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>15</span><input type="checkbox" id="15" name="talle15"class="checkbox" /></div>  
+                        <div class="col1-sm-1"><span>16</span><input type="checkbox" id="16" name="talle16"class="checkbox" /></div> 
+                        </fieldset>
+                      </div>
+                    </div>
+                    <!--TALLE -->
+                    <div class="form-group">
+                      <label for="new-producto-tamaño" class="col-sm-2 control-label">Tamaño: </label>
+                      <div class="col-sm-8">
+                      <fieldset>
+                        <div class="col1-sm-1">
+                          <span>All</span><input type="checkbox" id="tamaño-all" class="checkbox" />
+                        </div>
+                        <div class="col1-sm-1">
+                          <span>XXS</span><input type="checkbox" id="talleXXS" name="talleXXS" class="checkbox" />
+                        </div>
+                        <div class="col1-sm-1"><span>XS</span><input type="checkbox" id="talleXS" name="talleXS"class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>S</span><input type="checkbox" id="talleS" name="talleS" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>M</span><input type="checkbox" id="talleM" name="talleM" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>L</span><input type="checkbox" id="talleL" name="talleL" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>XL</span><input type="checkbox" id="talleXL" name="talleXL" class="checkbox" /></div>
+                        <div class="col1-sm-1"><span>XXL</span><input type="checkbox" id="talleXXL" name="talleXXL" class="checkbox" /></div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <!--MEDIDAS-->
+                    <div class="form-group">
+                      <label for="medidas" class="col-sm-2 control-label">Medidas: </label>
+                      <div class="col-sm-8">
+                        <input type="text" id="medidas" name="medidas" class="form-control"></input>
+                      </div> 
+                    </div>
+                    
+                    <hr>
+
+                    <!--COLOR-->
+                    <div class="form-group">
+                      <label for="color" class="col-sm-2 control-label">Color: </label>
+                      <div class="col-sm-8">
+                        <input type="text" id="color"  class="form-control"> </input>
+                      </div> 
+                    </div>
+
+                    <!--IMAGENES-->
+                    <div class="form-group">
+                      <label for="new-producto-color" class="col-sm-2 control-label">Imagenes: </label>
+                      <div class="col-sm-10">
+                        <div class="col-sm-5" >
+                          <div id="preview1"  >
+                              <span class="file-input btn btn-primary btn-file">
+                              + <input id="file1" type="file" multiple>
+                            </span>
+                            <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div id="preview2"  >
+                            <span class="file-input btn btn-primary btn-file">
+                              + <input id="file2" type="file" multiple>
+                            </span>
+                            <canvas id="imagen2"  name="imagen2" class="img-thumbnail"></canvas>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div id="preview3"  >
+                            <span class="file-input btn btn-primary btn-file">
+                              + <input id="file3" type="file" multiple>
+                            </span>
+                            <canvas id="imagen3" name="imagen3" class="img-thumbnail"></canvas>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div id="preview4"  >
+                            <span class="file-input btn btn-primary btn-file">
+                              + <input id="file4" type="file" multiple>
+                            </span>
+                            <canvas id="imagen4"  name="imagen4" class="img-thumbnail"></canvas>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div id="preview5"  >
+                            <span class="file-input btn btn-primary btn-file">
+                              + <input id="file5" type="file" multiple>
+                            </span>
+                            <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div id="preview6"  >
+                            <span class="file-input btn btn-primary btn-file">
+                              + <input id="file6" type="file" multiple>
+                            </span>
+                            <canvas id="imagen6"  name="imagen6" class="img-thumbnail">  <span class="file-input btn btn-primary btn-file">
+                              + <input id="file6" type="file" multiple>
+                            </span></canvas>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    <hr>
+                    
+                    <div class="form-group">
+                      <div class="col-sm-4">
+                      </div>
+                      <div class="col-sm-7">
+                        <button id="new-producto" type="submit" class="btn btn-primary   btn-lg ">GUARDAR</button>
+                        <div id="close-producto" class="btn btn-primary btn-lg"> CERRAR </div>
+                      </div>
+                    </div>
+                    </div>
+                  </form>
               </div>
             </div>
           </div>
         </div>
-        <div id="producto-big"></div>
+
+        <div id="producto-big" class="modal">
+        </div>
       </div>
     </div>
+
   </script>
 
   <!-- Template para los productos - Miniatura  -->
   <script type="text/template" id="productoVista">
-    <div id="contenedor-producto" class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="img/<%= imagen1 %>" alt="<%= name %>" >
-        <div class="caption">
+    <div id="contenedor-producto" class="col-sm-6 col-md-3 testt" data-test="twisterInUp" data-toggle="modal" href="#producto-big">
+      <center>
+        <img class="vistaproducto" src="img/<%= imagen1 %>" alt="<%= name %>" >
+        <div class="caption vistadetail">
           <h3><%= name %></h3>
           <p><%= descripcion %></p>
         </div>
-      </div>
+      </center>
     </div>
   </script>
 
@@ -528,8 +593,22 @@
   <!-- Template para los productos - Grande  -->
   
   <script type="text/template" id="productoVistaBig">
-    <div id="contenedor-producto">
-     
+    <div id="contenedor-producto-big" class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+        <div id="big">
+          <div id="bigImage">
+            <img  src="img/<%= imagen1 %>" alt="<%= name %>" >
+           </div>
+
+          <div class="detalles">
+            <h3><%= name %></h3>
+            <p><%= descripcion %></p>
+            <p><%= descripcion2 %></p>+
+            <p><%= color %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </script>
 
@@ -559,8 +638,9 @@
   <script src="js/views/categoriaViews/categoriaMenu.js"></script>
   <script src="js/views/productViews/productos.js"></script>
   <script src="js/views/productViews/editProducto.js"></script>
+  <script src="js/views/productViews/bigProducto.js"></script>
   <script src="js/views/productViews/productoList.js"></script>
-  <script src="js/views/mainProduct/bigProducto.js"></script>
+
   <script src="js/views/login.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/routers/router.js"></script>

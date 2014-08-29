@@ -1,27 +1,44 @@
+@font-face {
+    font-family: abricos;
+    src: url(abricos_7.ttf);
+}
 
+body { background: -webkit-gradient
+           (linear, left top, left bottom, from(#ccc), to(#fff));
+}
 
 #mainapp {
   width: 100%;
   float: right;
+   
+   font-size: 15px;
 }
 
-#logo{
-  font-family:  'Century Schoolbook', Georgia, 'Times New Roman', serif;
-  font-weight: normal;
-  font-size: 2.75em;
-  letter-spacing: .2em;
-  line-height: 1.1em;
-  margin:0px;
-  text-align: center;
-  text-transform: uppercase;
+
+
+#contenedor-producto{
+  height: 277px;
+ width:  247px;
 }
+
 
 #top{
   background-image: linear-gradient(to bottom, #3c3c3c 0%, #000 50%);
+  font-family: abricos;
+  font-size: 25px;
+   -webkit-box-shadow:0 5px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 5px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 5px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+    cursor: pointer;
 }
 
 #mainapp{
   padding-top: 50px;
+}
+
+#editUser{
+
+  overflow:auto;
 }
 
 #aside {
@@ -33,7 +50,62 @@
   width: 40%;
 }
 
+#categoria-list, #user-list{
+  padding-left: 150px;
+}
 
+.destroy{
+  margin-left: 10px;
+}
+
+.testt {
+  margin: 10px;
+    position:relative;       
+  -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  cursor: pointer;
+
+
+}
+.testt:hover {
+  box-shadow:0 1px 10px black, 0 0 15px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.vistaproducto{
+  -webkit-transition-duration: 0.5s;
+  /* Webkit: Animation duration; */
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+.testt:hover .vistaproducto{
+  -webkit-transform: scale(1.2);
+  /* Webkit: Scale up image to 1.2x original size; */
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  opacity: 1;
+}
+
+
+#big{
+  width: 900px; height: 500px;
+}
+#bigImage{
+
+}
+
+
+
+.vistadetail{
+  margin: 20px;
+  padding-bottom: 10px;
+}
+.vistaproducto{
+  width: 80%;
+  line-height: 80%;
+  margin: 15px;
+}
 
 .col1-sm-1 {
   width: 35px;
@@ -68,7 +140,7 @@ input[readonly] {
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+ */ 
 
 /* Toggle Styles */
 
@@ -81,16 +153,16 @@ input[readonly] {
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 150px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 150px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -150px;
     overflow-y: auto;
     background: #000;
     -webkit-transition: all 0.5s ease;
@@ -100,7 +172,7 @@ input[readonly] {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 150px;
 }
 
 li{
@@ -111,19 +183,18 @@ li{
     width: 100%;
     
    background-color: white;
-    border-top-left-radius: 2em;
-     border-top-right-radius: 2em;
+  
 }
-
+/*
 #fondo{
   background-color: black;
 }
 #fondo2{
   background-color: black;
-}
+}*/
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -150px;
 }
 
 /* Sidebar Styles */
@@ -131,7 +202,7 @@ li{
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 150px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -161,7 +232,7 @@ li{
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 150px;
     }
 
     #wrapper.toggled {
@@ -169,7 +240,7 @@ li{
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 150px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

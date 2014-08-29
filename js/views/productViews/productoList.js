@@ -1,4 +1,3 @@
-
 var app = app || {};
 
 app.ProductoListView = Backbone.View.extend({
@@ -8,7 +7,7 @@ app.ProductoListView = Backbone.View.extend({
   template: _.template( $('#productoVista').html() ),
 
   events: {
-    'click .edit': 'edit', 
+      'click #contenedor-producto': 'big', 
   },
   
   initialize: function() {
@@ -16,11 +15,15 @@ app.ProductoListView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html( this.template( this.model.attributes ) );
+    $(this.el).find('.testt').each( function(i, el ) {
+      $(el).addClass('magictime spaceInLeft');
+    });
     return this;
   },  
-  edit: function( user ) {
-   /* var view = new app.BigProductView( { model: this.model } );
-    $('#producto-big').html( view.render().el );*/
+  big: function( producto ) {
+    var view = new app.BigProductoView( { model: this.model } );
+    $('#producto-big').html( view.render().el );
   },
+  
 
 });

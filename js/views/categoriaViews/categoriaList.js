@@ -20,9 +20,13 @@ app.CategoriaListView = Backbone.View.extend({
     this.$el.html( this.template( this.model.attributes ) );
     return this;
   },  
-  
   clear: function() {
-    this.model.destroy();
+    var x = this.model; 
+    bootbox.confirm("Seguro de borrar la categoria " + this.model.attributes.name + "?", function(result) {
+    if(result){
+      x.destroy();
+    }
+    });
   },
   edit: function( categoria ) {
     var view = new app.EditCategoriaView( { model: this.model } );
