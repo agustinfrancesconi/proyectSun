@@ -4,6 +4,7 @@ var app = app || {};
 var UserList = Backbone.Collection.extend({
   // Reference to this collection's model.
   model: app.User,
+  
     // Save all of the movie items under the `"movies-backbone"` namespace.
   localStorage: new Backbone.LocalStorage('users-testooo'),
 });

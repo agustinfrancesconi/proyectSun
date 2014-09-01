@@ -11,15 +11,22 @@ app.ProductoView = Backbone.View.extend({
     'click #verProducto' : 'ver',
     'focus #categoria' : 'chargeCategorias',
     'focus #cod' : 'fixImagenes',
+    'click #categoria-lista' : 'viewByCat',
   },
   
   initialize: function() {
+ this.$id = '';
     this.listenTo(app.Productos, 'reset', this.addAll);
     this.listenTo(app.Productos, 'change', this.addAll);
     app.Productos.fetch();
     app.Categorias.fetch();
   },  
-  render: function(y) {
+  render: function(y,id) {
+   
+
+
+   
+    
     $(this.el).html(this.template());
     this.checkZapas();
     this.checkTamaño();
@@ -27,7 +34,7 @@ app.ProductoView = Backbone.View.extend({
     $('input[type="checkbox"]').checkbox();
     for(x = 1 ; x<7 ; x++){this.imagenes(x);}
     
-    this.addAll();
+    this.addAll(id);
     this.addAllCat();
     
     if(y != "admin"){
@@ -70,6 +77,12 @@ app.ProductoView = Backbone.View.extend({
       }   
     );
 
+
+    $("#categoria option:selected").each( 
+      function(i, el) { 
+       formData['categoria']  = el.value ;
+      }   
+    );
     app.Productos.create( formData );
     $(this.el).find('#addProducto').hide();
   },
@@ -81,7 +94,6 @@ app.ProductoView = Backbone.View.extend({
         preview = dom.byId("preview"+x),
         canvas = dom.byId("imagen"+x),
         input = dom.byId("file"+x);
-
 
       var render = function(src){
         var img = new Image();
@@ -127,7 +139,6 @@ app.ProductoView = Backbone.View.extend({
           e.preventDefault(); 
           readImage( this.files[0]);
         }, true);
-
       }
     });
   },
@@ -187,12 +198,28 @@ app.ProductoView = Backbone.View.extend({
     );
   },  
   addOne: function( producto ) {
+  
+    if(this.$id != undefined){
+      if(producto.attributes.categoria == this.$id){
+      var view = new app.ProductoListView({ model: producto });
+      this.$('#producto-lista').append( view.render().el );
+    } 
+    }else{
     var view = new app.ProductoListView({ model: producto });
-    this.$('#producto-lista').append( view.render().el );
+      this.$('#producto-lista').append( view.render().el );}
+     
+    
   },
-  addAll: function() {
+  addAll: function(id) {
     this.$('#producto-lista').html('');
-    app.Productos.each(this.addOne, this);  
+    this.$id = id;
+   app.Productos.each(this.addOne, this); 
+     /* app.Productos.each(function( el ) {
+          if(el.attributes.categoria == id){
+            //console.log(addOne);
+            addOne(el);
+          }  
+      }); */
     this.$('#categoria-lista').html('');
   },
   addOneCat: function( categoria ) {
@@ -203,4 +230,7 @@ app.ProductoView = Backbone.View.extend({
     this.$('#categoria-lista').html('');
     app.Categorias.each(this.addOneCat, this);  
   },
+  viewByCat: function(e) {
+    app.SunRouter.navigate("#/producto/"+e.toElement.id);
+  }
 });

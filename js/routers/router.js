@@ -47,7 +47,10 @@ var Workspace = Backbone.Router.extend({
     }  
   },
   viewProduct: function (id) { 
-    alert('you are viewing the product ' + id); 
+     if(this.validate()){
+      $('#mainapp').html('');
+      $('#mainapp').html(new app.ProductoView().render('',id).el);
+    }   
   },
 });
 

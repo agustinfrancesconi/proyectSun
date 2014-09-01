@@ -580,8 +580,8 @@
       <center>
         <img class="vistaproducto" src="img/<%= imagen1 %>" alt="<%= name %>" >
         <div class="caption vistadetail">
-          <h3><%= name %></h3>
-          <p><%= descripcion %></p>
+          <p class="nombre"><%= name %></p>
+          <p class="desc"><%= descripcion %></p>
         </div>
       </center>
     </div>
@@ -595,19 +595,34 @@
   <script type="text/template" id="productoVistaBig">
     <div id="contenedor-producto-big" class="modal-dialog">
       <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
-        <div id="big">
-          <div id="bigImage">
-            <img  src="img/<%= imagen1 %>" alt="<%= name %>" >
-           </div>
-
-          <div class="detalles">
-            <h3><%= name %></h3>
-            <p><%= descripcion %></p>
-            <p><%= descripcion2 %></p>+
-            <p><%= color %></p>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img class="bigProducto" src="img/<%= imagen1 %>" alt="<%= name %>" >
+          </div>
+          <div class="col-md-6">
+            <div class="detalles">
+              <h3><%= name %></h3>
+              <p><%= descripcion %></p>
+              <p><%= descripcion2 %></p>
+              <p>Color: <%= color %></p>
+              <p>Marca: <%= marca %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            
+          </div>    
+          <div class="col-md-6">
+            
+          </div> 
+        <div>
       </div>
     </div>
   </script>
