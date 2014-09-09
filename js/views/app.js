@@ -17,8 +17,12 @@ app.AppView = Backbone.View.extend({
     'click #agregarUser':'addUser',
     'click #verUser':'verUser',
 
-    'click #categorias':'adminCategoria',
-    'click #productos':'adminProducto',
+
+    'click #agregarCategoria':'addCategoria',
+    'click #verCategoria':'verCategoria',
+
+    'click #productosVer': 'adminProducto',
+    'click #productosAdd': 'addProducto',
   },
  
   render:function () {
@@ -38,11 +42,17 @@ app.AppView = Backbone.View.extend({
   addUser: function() {
     app.SunRouter.navigate("#/addusuario");
   },
-  adminCategoria: function() {
-    app.SunRouter.navigate("#/categorias");
+  addCategoria: function() {
+    app.SunRouter.navigate("#/addcategorias");
+  },
+  verCategoria: function() {
+    app.SunRouter.navigate("#/vercategorias");
   },
   adminProducto: function() {
     app.SunRouter.navigate("#/productos");
+  },
+  addProducto: function() {
+    app.SunRouter.navigate("#/addproductos");
   },
  
 });

@@ -4,13 +4,24 @@ var Workspace = Backbone.Router.extend({
     ''         : 'main', 
   	'#' 				: 'main', 
     'login'         : 'login', 
-  	'producto/:id' 	: 'viewProduct', 
-  	'productos' 	: 'mainProductos',
-  	'categorias' 	: 'mainCategorias',
+  	
+    'producto/:id' 	: 'viewProduct', 
+  	'productos' 	: 'viewProduct',
+    'addproductos'   : 'addProductos',
+  	
+    'addcategorias' 	: 'addCategorias',
+    'vercategorias'  : 'verCategorias',
+    
     'addusuario'  : 'addUsuarios',
     'verusuarios'  : 'verUsuarios',
+
     'userxcat'  : 'mainUserXcat',
   }, 
+
+  initialize: function() {
+      app.Categorias.fetch();
+      app.Productos.fetch();
+  },
   validate : function () { 
     //valida usuario logueado
     //en caso de ser falso lo manda al login
@@ -18,7 +29,6 @@ var Workspace = Backbone.Router.extend({
   },
   login: function() {
     if(this.validate()){
-      console.log("login");
       $('body').html(new app.LoginView().render().el);
     }else{
       
@@ -30,34 +40,40 @@ var Workspace = Backbone.Router.extend({
       $('#mainapp').html(new app.ProductoView().render().el);
     }  
   },
- verUsuarios: function() {
-    if(this.validate()){
-      $('#mainapp').html('');
-      $('#mainapp').html(new app.UserView().render(1).el);
-    }  
-  },
-    addUsuarios: function() {
+  addUsuarios:function() {
     if(this.validate()){
       $('#mainapp').html('');
       $('#mainapp').html(new app.UserView().render().el);
     }  
   },
-  mainProductos: function() {
+  verUsuarios:function() {
     if(this.validate()){
       $('#mainapp').html('');
-      $('#mainapp').html(new app.ProductoView().render('admin').el);
+      $('#mainapp').html(new app.UserListaView().render().el);
     }  
   },
-  mainCategorias: function() {
+  addCategorias: function() {
     if(this.validate()){
       $('#mainapp').html('');
       $('#mainapp').html(new app.CategoriaView().render().el);
     }  
   },
-  viewProduct: function (id) { 
-     if(this.validate()){
+  verCategorias: function() {
+    if(this.validate()){
       $('#mainapp').html('');
-      $('#mainapp').html(new app.ProductoView().render('',id).el);
+      $('#mainapp').html(new app.CategoriaListaView().render().el);
+    }  
+  },
+  viewProduct: function (id) { 
+    if(this.validate()){
+      $('#mainapp').html('');
+      $('#mainapp').html(new app.ProductoView().render(id).el);
+    }   
+  },
+  addProductos: function () {
+    if(this.validate()){
+      $('#mainapp').html('');
+      $('#mainapp').html(new app.ProductoAddView().render().el);
     }   
   },
 });

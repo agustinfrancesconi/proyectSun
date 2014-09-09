@@ -26,7 +26,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a id="agregarUser">Agregar</a></li>
+            <li><a id="agregarUser">Agregar Usuario</a></li>
             <li><a id="verUser">Ver Todos</a></li>
           </ul>
         </li>  
@@ -40,8 +40,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos  <b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#" id="productos">Productos</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><a id="productosVer">Ver Todos</a></li>
+            <li><a id="productosAdd">Agregar Producto</a></li>
           </ul>
         </li>  
       </ul>
@@ -147,32 +147,30 @@
                 </div>
               </div> 
             </form>
-
-            <div id="user-list" class="container">
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>User</th>
-                      <th>Nombre</th>
-                      <th>Email</th>
-                      <th>Telefono</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-
-                  <tbody id="user-lista">
-                 
-                  </tbody>
-              </table> 
-            </div>
-            <div id="edit-list" class="modal">
-            </div>
-
           </div>
         </div>
       </div>  
   </script>
 
+  <script type="text/template" id="adminUsuariosListaView"> 
+    <div id="user-list" class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="user-lista">      
+        </tbody>
+      </table> 
+    </div>
+    <div id="edit-list" class="modal">
+    </div>
+  </script>
    <!-- TEMPLATE ADMINISTRACIÓN DE USUARIOS - Tabla de usuarios!-->
   <script type="text/template" id="adminUsuariosView"> 
     <td><%= user %></label></td>
@@ -240,7 +238,6 @@
     </div>
   </script>
   
-  
   <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de categorías!-->
   <script type="text/template" id="adminCategorias"> 
     <div class="col-sm-12" id="fondo2">
@@ -278,8 +275,14 @@
                 </div>
               </div>
             </form>
-            
-            <div id="categoria-list" class="table-responsive">
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+ <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Tabla de categorías!-->
+  <script type="text/template" id="adminCategoriasListaView"> 
+    <div id="categoria-list" class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
@@ -291,13 +294,8 @@
                 <tbody id="categoria-lista">
                 </tbody>
               </table> 
-            </div>
-
-            <div id="edit-list"  class="modal"></div>
-          </div>
-        </div>
-      </div>
     </div>
+    <div id="edit-list"  class="modal"></div>
   </script>
 
   <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Tabla de categorías!-->
@@ -356,17 +354,25 @@
       <div  class="col-sm-1 sidebar">
         <div id="wrapper">
           <div id="sidebar-wrapper">
-            <ul id="categoria-lista"class="sidebar-nav">
+            <ul id="categoria-listas" class="sidebar-nav">
             </ul>
           </div>
         </div>
       </div>
-      <div class="col-sm-11" id="fondo">
-        <div id="page-content-wrapper">
+      <div id="producto-lista" > 
+      </div>
+      <div id="producto-big" class="modal">
+      </div>
+    </div>
+  </script>
+
+
+  <script type="text/template" id="productoAdd">
+    <div id="page-content-wrapper">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-12">
-                <div id="producto-lista" > </div>
+                
                   <form id="addProducto" name="addProducto" class="form-horizontal container">
                     <div class="form-group ">
                       <div class="col-sm-offset-2 col-sm-5"> 
@@ -402,7 +408,7 @@
                       <label for="categoria" class="col-sm-2 control-label">Categoria: </label>
                         <div class="col-sm-8">
                           <select id="categoria" name="categoria" class="form-control">
-                            <option>---</option>
+                            
                           </select>
                         </div>
                     </div>
@@ -571,11 +577,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div id="producto-big" class="modal">
-        </div>
-      </div>
     </div>
   </script>
 
@@ -595,10 +596,8 @@
   <script type="text/template" id="categoriaMenu">
     <a id="<%= cod %>"><%= name%></a>
   </script>
-   <script type="text/template" id="categoriasCheckbox">
-   
+  <script type="text/template" id="categoriasCheckbox">
     <label for="<%= cod %>"> <input type="checkbox" class="checkbox" id="<%= cod %>">  <%= name %></label>
- 
   </script>
 
   <!-- Template para los productos - Grande  -->
@@ -659,15 +658,18 @@
   <script src="js/views/userViews/users.js"></script>
   <script src="js/views/userViews/editUser.js"></script>
   <script src="js/views/userViews/userList.js"></script>
+  <script src="js/views/userViews/userListaView.js"></script>
   <script src="js/views/categoriaViews/categorias.js"></script>
   <script src="js/views/categoriaViews/editCategoria.js"></script>
   <script src="js/views/categoriaViews/categoriaList.js"></script>
   <script src="js/views/categoriaViews/categoriaMenu.js"></script>
+  <script src="js/views/categoriaViews/categoriaListaView.js"></script>
   <script src="js/views/categoriaViews/categoriaCheckBox.js"></script>
   <script src="js/views/productViews/productos.js"></script>
   <script src="js/views/productViews/editProducto.js"></script>
   <script src="js/views/productViews/bigProducto.js"></script>
   <script src="js/views/productViews/productoList.js"></script>
+  <script src="js/views/productViews/addProducto.js"></script>
   <script src="js/views/login.js"></script>
   <script src="js/views/app.js"></script>
   <script src="js/routers/router.js"></script>
