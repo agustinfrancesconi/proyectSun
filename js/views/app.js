@@ -23,15 +23,13 @@ app.AppView = Backbone.View.extend({
 
     'click #productosVer': 'adminProducto',
     'click #productosAdd': 'addProducto',
+
+    'submit #searchform': 'viewProductoName',
   },
  
-  render:function () {
-  
-
-    },
-
   initialize: function() {
-
+  },
+  render:function () {
   },
   home: function() {
     app.SunRouter.navigate("#/");
@@ -54,5 +52,8 @@ app.AppView = Backbone.View.extend({
   addProducto: function() {
     app.SunRouter.navigate("#/addproductos");
   },
- 
+  viewProductoName: function(event) {
+    app.SunRouter.navigate("#/productosname/"+ $('#searchform').find('#inputsearch').val());
+  },
+  
 });

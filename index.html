@@ -46,12 +46,12 @@
         </li>  
       </ul>
     </div>
-    <div class="col-sm-3 col-md-2 pull-right">
-      <form class="navbar-form" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="q">
+    <div class="col-sm pull-right">
+      <form class="navbar-form" id="searchform" role="search">
+        <div class="input-group col-5">
+          <input type="text" class="form-control" id="inputsearch" placeholder="Search" >
           <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default" id="searchbar" type="submit"><i class="glyphicon glyphicon-search"></i></button>
           </div>
         </div>
       </form>
@@ -81,7 +81,7 @@
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Recordarme
         </label>
-        <button class="btn btn-large btn-primary" id="loginButton" type="submit">Log In</button>
+        <button class="btn btn-large btn-default" id="loginButton" type="submit">Log In</button>
       </form>
     </div> 
   </script>
@@ -142,8 +142,8 @@
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                      <button id="new-user" type="submit" class="btn btn-primary   btn-lg ">  GUARDAR</button>
-                        <div id="new-close" class="btn btn-primary btn-lg"> CERRAR </div>
+                      <button id="new-user" type="submit" class="btn btn-default   btn-lg ">  GUARDAR</button>
+                        <div id="new-close" class="btn btn-default btn-lg"> CERRAR </div>
                 </div>
               </div> 
             </form>
@@ -179,9 +179,9 @@
     <td><%= tel %></label></td>
     <td> 
       <a data-toggle="modal" href="#edit-list">
-      <button class="edit btn btn-primary btn" value=""><span class="glyphicon glyphicon-pencil"></span></button>
+      <button class="edit  btn-default" value=""><span class="glyphicon glyphicon-pencil"></span></button>
       </a>
-      <button class="destroy btn btn-primary btn">  <span class="glyphicon glyphicon-trash"></span></button> 
+      <button class="destroy  btn-default">  <span class="glyphicon glyphicon-trash"></span></button> 
     </td>
   </script>
   
@@ -230,7 +230,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-3">
-              <button id="edit-user" type="submit"  data-dismiss="modal" class="btn btn-primary   btn-lg ">GUARDAR</button>
+              <button id="edit-user" type="submit"  data-dismiss="modal" class="btn btn-default   btn-lg ">GUARDAR</button>
             </div>
           </div>
         </form>
@@ -270,8 +270,8 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-8">
-                 <button id="new-categoria" type="submit" class="btn btn-primary   btn-lg "> GUARDAR</button>
-                  <div id="new-close" class="btn btn-primary btn-lg">CERRAR</div>
+                 <button id="new-categoria" type="submit" class="btn btn-default   btn-lg "> GUARDAR</button>
+                  <div id="new-close" class="btn btn-default btn-lg">CERRAR</div>
                 </div>
               </div>
             </form>
@@ -304,9 +304,9 @@
     <td><%= name %></label></td>
     <td><%= descripcion %></label></td>
     <td> <a data-toggle="modal" href="#edit-list">
-    <button class="edit btn btn-primary btn" value=""><span class="glyphicon glyphicon-pencil"></span></button>
+    <button class="edit btn btn-default btn" value=""><span class="glyphicon glyphicon-pencil"></span></button>
     </a>
-    <button class="destroy btn btn-primary btn"><span class="glyphicon glyphicon-trash"></span></button> </td>
+    <button class="destroy btn btn-default btn"><span class="glyphicon glyphicon-trash"></span></button> </td>
   </script>
 
    <!-- TEMPLATE ADMINISTRACIÓN DE CATEGORÍAS - Formulario de edición de categorías!-->
@@ -340,7 +340,7 @@
           </div> 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-3">
-              <button id="edit-categoria" type="submit"  data-dismiss="modal" class="btn btn-primary   btn-lg ">GUARDAR</button>
+              <button id="edit-categoria" type="submit"  data-dismiss="modal" class="btn btn-default   btn-lg ">GUARDAR</button>
             </div>
           </div> 
         </form> 
@@ -510,7 +510,7 @@
                       <div class="col-sm-10">
                         <div class="col-sm-5" >
                           <div id="preview1"  >
-                              <span class="file-input btn btn-primary btn-file">
+                              <span class="file-input btn btn-default btn-file">
                               + <input id="file1" type="file" multiple>
                             </span>
                             <canvas id="imagen1" name="imagen1" class="img-thumbnail"></canvas>
@@ -518,7 +518,7 @@
                         </div>
                         <div class="col-sm-5">
                           <div id="preview2"  >
-                            <span class="file-input btn btn-primary btn-file">
+                            <span class="file-input btn btn-default btn-file">
                               + <input id="file2" type="file" multiple>
                             </span>
                             <canvas id="imagen2"  name="imagen2" class="img-thumbnail"></canvas>
@@ -526,7 +526,7 @@
                         </div>
                         <div class="col-sm-5">
                           <div id="preview3"  >
-                            <span class="file-input btn btn-primary btn-file">
+                            <span class="file-input btn btn-default btn-file">
                               + <input id="file3" type="file" multiple>
                             </span>
                             <canvas id="imagen3" name="imagen3" class="img-thumbnail"></canvas>
@@ -534,7 +534,7 @@
                         </div>
                         <div class="col-sm-5">
                           <div id="preview4"  >
-                            <span class="file-input btn btn-primary btn-file">
+                            <span class="file-input btn btn-default btn-file">
                               + <input id="file4" type="file" multiple>
                             </span>
                             <canvas id="imagen4"  name="imagen4" class="img-thumbnail"></canvas>
@@ -542,7 +542,7 @@
                         </div>
                         <div class="col-sm-5">
                           <div id="preview5"  >
-                            <span class="file-input btn btn-primary btn-file">
+                            <span class="file-input btn btn-default btn-file">
                               + <input id="file5" type="file" multiple>
                             </span>
                             <canvas id="imagen5"  name="imagen5" class="img-thumbnail"></canvas>
@@ -550,10 +550,10 @@
                         </div>
                         <div class="col-sm-5">
                           <div id="preview6"  >
-                            <span class="file-input btn btn-primary btn-file">
+                            <span class="file-input btn btn-default btn-file">
                               + <input id="file6" type="file" multiple>
                             </span>
-                            <canvas id="imagen6"  name="imagen6" class="img-thumbnail">  <span class="file-input btn btn-primary btn-file">
+                            <canvas id="imagen6"  name="imagen6" class="img-thumbnail">  <span class="file-input btn btn-default btn-file">
                               + <input id="file6" type="file" multiple>
                             </span></canvas>
                           </div>
@@ -566,8 +566,8 @@
                       <div class="col-sm-4">
                       </div>
                       <div class="col-sm-7">
-                        <button id="new-producto" type="submit" class="btn btn-primary   btn-lg ">GUARDAR</button>
-                        <div id="close-producto" class="btn btn-primary btn-lg"> CERRAR </div>
+                        <button id="new-producto" type="submit" class="btn btn-default   btn-lg ">GUARDAR</button>
+                        <div id="close-producto" class="btn btn-default btn-lg"> CERRAR </div>
                       </div>
                     </div>
                     </div>
@@ -643,7 +643,6 @@
   <script src="js/lib/bootstrap.js"></script>
   <script src="js/lib/bootstrap-confirmation.js"></script>
   <script src="js/lib/bootbox.js"></script>
-  <script src="js/lib/jquery.tinycolorpicker.min.js"></script>
   <script src="js/lib/bootstrap-checkbox.js"></script>
   <script src="js/lib/dojo.js"></script>
   <script src="js/models/user.js"></script>
