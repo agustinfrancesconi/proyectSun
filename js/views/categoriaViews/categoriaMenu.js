@@ -3,7 +3,7 @@ var app = app || {};
 
 app.CategoriaMenuView = Backbone.View.extend({
 
-  tagName: 'li',
+  tagName: 'a',
   
   template: _.template( $('#categoriaMenu').html() ),
   

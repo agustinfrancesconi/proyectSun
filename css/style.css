@@ -13,6 +13,65 @@ body { background: -webkit-gradient
   font-size: 15px;
 }
 
+/* Effect 1: Brackets */
+.cl-effect-1 {
+  width: 250px;
+}
+.cl-effect-1 a {
+  position: relative;
+  display: inline-block;
+  margin: 15px ;
+  outline: none;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-shadow: 0 0 1px rgba(255,255,255,0.3);
+  font-size: 1.35em;
+}
+.cl-effect-1 a:hover,
+.cl-effect-1 a:focus {
+  color: #FF8602;
+  text-decoration: none;
+  outline: none;
+}
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+  content: '[';
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+  content: ']';
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after {
+  color: #FF8602;
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+
 .bigProducto{
   margin: 15px;
 }
@@ -74,7 +133,7 @@ body { background: -webkit-gradient
 }
 
 .testt:hover {
-  box-shadow:0 1px 10px black, 0 0 15px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 10px #FF8602, 0 0 15px rgba(0, 0, 0, 0.1) inset;
 }
 
 .vistaproducto{

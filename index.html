@@ -351,16 +351,14 @@
      <!-- TEMPLATE ADMINISTRACIÓN DE PRODUCTOS - Formulario de productos!-->
   <script type="text/template" id="adminProductos">    
     <div class="col-sm-12" id="fondo2">
-      <div  class="col-sm-1 sidebar">
-        <div id="wrapper">
-          <div id="sidebar-wrapper">
-            <ul id="categoria-listas" class="sidebar-nav">
-            </ul>
-          </div>
-        </div>
+      <div  class="col-sm-2 sidebar">
+        <nav id="categoria-listas"  id="cl-effect-1" class="cl-effect-1">
+        </nav>
       </div>
-      <div id="producto-lista" > 
+      
+      <div id="producto-lista" class="col-sm-10 sidebar" > 
       </div>
+      
       <div id="producto-big" class="modal">
       </div>
     </div>
@@ -594,8 +592,9 @@
   </script>
 
   <script type="text/template" id="categoriaMenu">
-    <a id="<%= cod %>"><%= name%></a>
+  <span id="<%= cod %>" data-hover="<%= name%>"><%= name%></span>
   </script>
+
   <script type="text/template" id="categoriasCheckbox">
     <label for="<%= cod %>"> <input type="checkbox" class="checkbox" id="<%= cod %>">  <%= name %></label>
   </script>
