@@ -4,7 +4,7 @@ var app = app || {};
 var CategoriaList = Backbone.Collection.extend({
   // Reference to this collection's model.
   model: app.Categoria,
-//  url: 'php/categoriaController.php/categoria'
+ //url: 'php/categoriaController.php/categoria'
  localStorage: new Backbone.LocalStorage('categorias-backbone'),
 });
 

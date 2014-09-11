@@ -6,7 +6,7 @@ require 'connection.php';
 $app = new Slim();
 
 $app->get('/categoria', 'getCategorias');
-$app->get('/categoria/:cod',	'getCategoria');
+$app->get('/categoria/:cod', 'getCategoria');
 //$app->get('/wines/search/:query', 'findByName');
 $app->post('/categoria', 'addCategoria');
 $app->put('/categoria/:cod', 'updateCategoria');

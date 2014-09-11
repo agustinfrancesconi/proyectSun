@@ -9,10 +9,11 @@ app.LoginView = Backbone.View.extend({
         return this;
     },
     initialize:function () {
-        this.render();
+      var url = '../api/login';
+      this.render();
     },
     events: {
-        "click #loginButton": "login"
+      "click #loginButton": "login"
     },
     login:function (event) {
         event.preventDefault(); // Don't let this button submit the form
@@ -20,10 +21,24 @@ app.LoginView = Backbone.View.extend({
             email: $('#user').val(),
             password: $('#pass').val()
         };  
-        if(formValues){
-            //set the user 
-            //mando al home
-            app.SunRouter.navigate("");
+        if(formValues.email != '' && formValues.password != ''){
+        
+        $.ajax({
+            url:url,
+            type:'POST',
+            dataType:"json",
+            data: formValues,
+            success:function (data) {
+                console.log(["Login request details: ", data]);
+               
+                if(data.error) {  // If there is an error, show the error messages
+                    $('.alert-error').text(data.error.text).show();
+                }
+                else { // If not, send them back to the home page
+                    window.location.replace('#');
+                }
+            }
+        });
         }
     
     }
