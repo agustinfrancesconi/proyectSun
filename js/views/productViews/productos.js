@@ -10,11 +10,10 @@ app.ProductoView = Backbone.View.extend({
   },
   
   initialize: function() {
-     this.$id = '';
-      this.$name = '';
+    this.$id = '';
+    this.$name = '';
   },  
   render: function(id, name) {
-
     $(this.el).html(this.template());
     this.addAllCat();
     this.addAll(id,name);
@@ -23,7 +22,6 @@ app.ProductoView = Backbone.View.extend({
   },
   addOne:function( producto ) { 
     if(this.$id != ''){
-       console.log('id: ' + this.$name);
       if(producto.attributes.categoria == this.$id){
         var view = new app.ProductoListView({ model: producto });
         this.$('#producto-lista').append( view.render().el );
@@ -33,20 +31,16 @@ app.ProductoView = Backbone.View.extend({
         this.$('#producto-lista').append( view.render().el );
       }
     }else{
-      console.log('name: ' + this.$name);
       if(this.$name != ''){
         if(producto.attributes.name == this.$name){
           var view = new app.ProductoListView({ model: producto });
           this.$('#producto-lista').append( view.render().el );
         } else{ }
     }else{
-
       var view = new app.ProductoListView({ model: producto });
       this.$('#producto-lista').append( view.render().el );
     }
-      
     }
-    
   },
   addAll: function(id,name) {
     this.$('#producto-lista').html('');

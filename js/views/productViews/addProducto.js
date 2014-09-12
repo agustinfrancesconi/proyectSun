@@ -15,8 +15,12 @@ app.ProductoAddView = Backbone.View.extend({
   render: function(y,id) {
     $(this.el).html(this.template());
     this.checkZapas();
+    this.checkZapasNino();
     this.checkTamano();
-    this.checkNino();
+    this.checkMalla();
+
+    this.checkIndNino();
+   
     $('input[type="checkbox"]').checkbox();
     for(x = 1 ; x<7 ; x++){this.imagenes(x);}
     this.chargeCategorias();
@@ -38,13 +42,17 @@ app.ProductoAddView = Backbone.View.extend({
           formData[ el.id ] = $( el ).val();
         }
     });
-    
-    this.imagePhp(formData[ 'id' ] );
+
+
+
+    this.imagePhp(formData[ 'name' ] );
     
     formData[ 'tamano' ]  = '';
     $("input[type='checkbox']:checked").each( 
       function(i, el) { 
-       formData[ 'tamano' ] += el.id + ',';
+        if($(el).attr('class') != 'checkbox all'){
+          formData[ 'tamano' ] += el.id + ',';
+        }
       }   
     );
     
@@ -64,6 +72,7 @@ app.ProductoAddView = Backbone.View.extend({
         formData['categoria']  = el.value ;
       }   
     );
+
     app.Productos.create( formData );
  
     $(this.el).find('#addProducto').hide();
@@ -132,6 +141,14 @@ app.ProductoAddView = Backbone.View.extend({
       isCheck=!isCheck;
     });
   },
+  checkZapasNino:function (){
+    var isCheck=true;
+     this.$('#zapasn-all').click(function () {
+      if(isCheck){$('#zapasn-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#zapasn-all').closest('fieldset').find('input').prop('checked','');}
+      isCheck=!isCheck;
+    });
+  },
   checkTamano:function (){
     var isCheck=true;
       this.$('#tamano-all').click(function () {
@@ -140,12 +157,19 @@ app.ProductoAddView = Backbone.View.extend({
       isCheck=!isCheck;
     });  
   },
-  checkNino:function (){
+  checkMalla:function (){
     var isCheck=true;
-     this.$('#nino-all').click(function () {
-    
-      if(isCheck){$('#nino-all').closest('fieldset').find('input').prop('checked','checked');}
-      else{$('#nino-all').closest('fieldset').find('input').prop('checked','');}
+      this.$('#malla-all').click(function () {
+      if(isCheck){$('#malla-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#malla-all').closest('fieldset').find('input').prop('checked','');}
+      isCheck=!isCheck;
+    });  
+  },
+  checkIndNino:function (){
+    var isCheck=true;
+     this.$('#ninoi-all').click(function () {
+      if(isCheck){$('#ninoi-all').closest('fieldset').find('input').prop('checked','checked');}
+      else{$('#ninoi-all').closest('fieldset').find('input').prop('checked','');}
       isCheck=!isCheck;
     });
   },
@@ -169,11 +193,10 @@ app.ProductoAddView = Backbone.View.extend({
     } 
   },
   chargeCategorias:function(){
-    $(this.el).find("#categoria").append($("<option>").text('---'));
     var x = $(this.el).find("#categoria");
     app.Categorias.each(
       function (categoria){
-        x.append($("<option>").attr("value", categoria.get('id') ).text(categoria.get('name')));
+        x.append($("<option>").attr("value", categoria.get('id') ).text(categoria.get('name')).val(categoria.get('id')));
       }
     );
   }, 
